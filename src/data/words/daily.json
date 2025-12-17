@@ -1,0 +1,652 @@
+[
+  {
+    "id": "daily_001",
+    "vietnamese": "Đỏ",
+    "japanese": "赤",
+    "pronunciation": "ドー",
+    "audio_url": "/audio/words/daily/do.mp3",
+    "category": "daily",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Màu đỏ đẹp.",
+      "japanese": "赤い色がきれい。"
+    }
+  },
+  {
+    "id": "daily_002",
+    "vietnamese": "Vàng",
+    "japanese": "黄色",
+    "pronunciation": "ヴァン",
+    "audio_url": "/audio/words/daily/vang.mp3",
+    "category": "daily",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Hoa màu vàng.",
+      "japanese": "黄色い花。"
+    }
+  },
+  {
+    "id": "daily_003",
+    "vietnamese": "Xanh",
+    "japanese": "青／緑",
+    "pronunciation": "サイン",
+    "audio_url": "/audio/words/daily/xanh.mp3",
+    "category": "daily",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Bầu trời xanh.",
+      "japanese": "青い空。"
+    }
+  },
+  {
+    "id": "daily_004",
+    "vietnamese": "Trắng",
+    "japanese": "白",
+    "pronunciation": "チャン",
+    "audio_url": "/audio/words/daily/trang.mp3",
+    "category": "daily",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Áo trắng.",
+      "japanese": "白いシャツ。"
+    }
+  },
+  {
+    "id": "daily_005",
+    "vietnamese": "Đen",
+    "japanese": "黒",
+    "pronunciation": "デン",
+    "audio_url": "/audio/words/daily/den.mp3",
+    "category": "daily",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Mèo đen.",
+      "japanese": "黒い猫。"
+    }
+  },
+  {
+    "id": "daily_006",
+    "vietnamese": "Thứ hai",
+    "japanese": "月曜日",
+    "pronunciation": "トゥ ハイ",
+    "audio_url": "/audio/words/daily/thu-hai.mp3",
+    "category": "daily",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Hôm nay là thứ hai.",
+      "japanese": "今日は月曜日です。"
+    }
+  },
+  {
+    "id": "daily_007",
+    "vietnamese": "Thứ ba",
+    "japanese": "火曜日",
+    "pronunciation": "トゥ バ",
+    "audio_url": "/audio/words/daily/thu-ba.mp3",
+    "category": "daily",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Thứ ba tuần sau.",
+      "japanese": "来週の火曜日。"
+    }
+  },
+  {
+    "id": "daily_008",
+    "vietnamese": "Thứ tư",
+    "japanese": "水曜日",
+    "pronunciation": "トゥ トゥ",
+    "audio_url": "/audio/words/daily/thu-tu.mp3",
+    "category": "daily",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Họp vào thứ tư.",
+      "japanese": "水曜日に会議。"
+    }
+  },
+  {
+    "id": "daily_009",
+    "vietnamese": "Thứ năm",
+    "japanese": "木曜日",
+    "pronunciation": "トゥ ナム",
+    "audio_url": "/audio/words/daily/thu-nam.mp3",
+    "category": "daily",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Thứ năm này.",
+      "japanese": "今週の木曜日。"
+    }
+  },
+  {
+    "id": "daily_010",
+    "vietnamese": "Thứ sáu",
+    "japanese": "金曜日",
+    "pronunciation": "トゥ サウ",
+    "audio_url": "/audio/words/daily/thu-sau.mp3",
+    "category": "daily",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Nghỉ từ thứ sáu.",
+      "japanese": "金曜日から休み。"
+    }
+  },
+  {
+    "id": "daily_011",
+    "vietnamese": "Thứ bảy",
+    "japanese": "土曜日",
+    "pronunciation": "トゥ バイ",
+    "audio_url": "/audio/words/daily/thu-bay.mp3",
+    "category": "daily",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Cuối tuần thứ bảy.",
+      "japanese": "週末の土曜日。"
+    }
+  },
+  {
+    "id": "daily_012",
+    "vietnamese": "Chủ nhật",
+    "japanese": "日曜日",
+    "pronunciation": "チュ ニャット",
+    "audio_url": "/audio/words/daily/chu-nhat.mp3",
+    "category": "daily",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Chủ nhật đi chơi.",
+      "japanese": "日曜日に遊びに行く。"
+    }
+  },
+  {
+    "id": "daily_013",
+    "vietnamese": "Tháng",
+    "japanese": "月",
+    "pronunciation": "タン",
+    "audio_url": "/audio/words/daily/thang.mp3",
+    "category": "daily",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Tháng một.",
+      "japanese": "一月。"
+    }
+  },
+  {
+    "id": "daily_014",
+    "vietnamese": "Năm",
+    "japanese": "年",
+    "pronunciation": "ナム",
+    "audio_url": "/audio/words/daily/nam.mp3",
+    "category": "daily",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Năm nay.",
+      "japanese": "今年。"
+    }
+  },
+  {
+    "id": "daily_015",
+    "vietnamese": "Ngày",
+    "japanese": "日",
+    "pronunciation": "ガイ",
+    "audio_url": "/audio/words/daily/ngay.mp3",
+    "category": "daily",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Hôm nay.",
+      "japanese": "今日。"
+    }
+  },
+  {
+    "id": "daily_016",
+    "vietnamese": "Giờ",
+    "japanese": "時",
+    "pronunciation": "ジョー",
+    "audio_url": "/audio/words/daily/gio.mp3",
+    "category": "daily",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Mấy giờ?",
+      "japanese": "何時？"
+    }
+  },
+  {
+    "id": "daily_017",
+    "vietnamese": "Phút",
+    "japanese": "分",
+    "pronunciation": "フット",
+    "audio_url": "/audio/words/daily/phut.mp3",
+    "category": "daily",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Năm phút.",
+      "japanese": "五分。"
+    }
+  },
+  {
+    "id": "daily_018",
+    "vietnamese": "Gia đình",
+    "japanese": "家族",
+    "pronunciation": "ザ ディン",
+    "audio_url": "/audio/words/daily/gia-dinh.mp3",
+    "category": "daily",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Gia đình tôi.",
+      "japanese": "私の家族。"
+    }
+  },
+  {
+    "id": "daily_019",
+    "vietnamese": "Bố",
+    "japanese": "父",
+    "pronunciation": "ボー",
+    "audio_url": "/audio/words/daily/bo.mp3",
+    "category": "daily",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Bố tôi.",
+      "japanese": "私の父。"
+    }
+  },
+  {
+    "id": "daily_020",
+    "vietnamese": "Mẹ",
+    "japanese": "母",
+    "pronunciation": "メ",
+    "audio_url": "/audio/words/daily/me.mp3",
+    "category": "daily",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Mẹ tôi.",
+      "japanese": "私の母。"
+    }
+  },
+  {
+    "id": "daily_021",
+    "vietnamese": "Anh",
+    "japanese": "兄",
+    "pronunciation": "アイン",
+    "audio_url": "/audio/words/daily/anh.mp3",
+    "category": "daily",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Anh trai tôi.",
+      "japanese": "私の兄。"
+    }
+  },
+  {
+    "id": "daily_022",
+    "vietnamese": "Chị",
+    "japanese": "姉",
+    "pronunciation": "チ",
+    "audio_url": "/audio/words/daily/chi.mp3",
+    "category": "daily",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Chị gái tôi.",
+      "japanese": "私の姉。"
+    }
+  },
+  {
+    "id": "daily_023",
+    "vietnamese": "Em",
+    "japanese": "弟／妹",
+    "pronunciation": "エム",
+    "audio_url": "/audio/words/daily/em.mp3",
+    "category": "daily",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Em trai tôi.",
+      "japanese": "私の弟。"
+    }
+  },
+  {
+    "id": "daily_024",
+    "vietnamese": "Con",
+    "japanese": "子供",
+    "pronunciation": "コン",
+    "audio_url": "/audio/words/daily/con.mp3",
+    "category": "daily",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Con tôi.",
+      "japanese": "私の子供。"
+    }
+  },
+  {
+    "id": "daily_025",
+    "vietnamese": "Đầu",
+    "japanese": "頭",
+    "pronunciation": "ダウ",
+    "audio_url": "/audio/words/daily/dau.mp3",
+    "category": "daily",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Đau đầu.",
+      "japanese": "頭痛。"
+    }
+  },
+  {
+    "id": "daily_026",
+    "vietnamese": "Mắt",
+    "japanese": "目",
+    "pronunciation": "マット",
+    "audio_url": "/audio/words/daily/mat.mp3",
+    "category": "daily",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Mắt đẹp.",
+      "japanese": "きれいな目。"
+    }
+  },
+  {
+    "id": "daily_027",
+    "vietnamese": "Tai",
+    "japanese": "耳",
+    "pronunciation": "タイ",
+    "audio_url": "/audio/words/daily/tai.mp3",
+    "category": "daily",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Đau tai.",
+      "japanese": "耳が痛い。"
+    }
+  },
+  {
+    "id": "daily_028",
+    "vietnamese": "Miệng",
+    "japanese": "口",
+    "pronunciation": "ミエン",
+    "audio_url": "/audio/words/daily/mieng.mp3",
+    "category": "daily",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Mở miệng.",
+      "japanese": "口を開ける。"
+    }
+  },
+  {
+    "id": "daily_029",
+    "vietnamese": "Tay",
+    "japanese": "手",
+    "pronunciation": "タイ",
+    "audio_url": "/audio/words/daily/tay.mp3",
+    "category": "daily",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Rửa tay.",
+      "japanese": "手を洗う。"
+    }
+  },
+  {
+    "id": "daily_030",
+    "vietnamese": "Chân",
+    "japanese": "足",
+    "pronunciation": "チャン",
+    "audio_url": "/audio/words/daily/chan.mp3",
+    "category": "daily",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Đau chân.",
+      "japanese": "足が痛い。"
+    }
+  },
+  {
+    "id": "daily_031",
+    "vietnamese": "Nhà",
+    "japanese": "家",
+    "pronunciation": "ニャー",
+    "audio_url": "/audio/words/daily/nha.mp3",
+    "category": "daily",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Về nhà.",
+      "japanese": "家に帰る。"
+    }
+  },
+  {
+    "id": "daily_032",
+    "vietnamese": "Xe",
+    "japanese": "車",
+    "pronunciation": "セ",
+    "audio_url": "/audio/words/daily/xe.mp3",
+    "category": "daily",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Xe ô tô.",
+      "japanese": "自動車。"
+    }
+  },
+  {
+    "id": "daily_033",
+    "vietnamese": "Điện thoại",
+    "japanese": "電話",
+    "pronunciation": "ディエン トアイ",
+    "audio_url": "/audio/words/daily/dien-thoai.mp3",
+    "category": "daily",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Gọi điện thoại.",
+      "japanese": "電話をかける。"
+    }
+  },
+  {
+    "id": "daily_034",
+    "vietnamese": "Máy tính",
+    "japanese": "コンピューター",
+    "pronunciation": "マイ ティン",
+    "audio_url": "/audio/words/daily/may-tinh.mp3",
+    "category": "daily",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Máy tính xách tay.",
+      "japanese": "ノートパソコン。"
+    }
+  },
+  {
+    "id": "daily_035",
+    "vietnamese": "Sách",
+    "japanese": "本",
+    "pronunciation": "サック",
+    "audio_url": "/audio/words/daily/sach.mp3",
+    "category": "daily",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Đọc sách.",
+      "japanese": "本を読む。"
+    }
+  },
+  {
+    "id": "daily_036",
+    "vietnamese": "Bút",
+    "japanese": "ペン",
+    "pronunciation": "ブット",
+    "audio_url": "/audio/words/daily/but.mp3",
+    "category": "daily",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Bút bi.",
+      "japanese": "ボールペン。"
+    }
+  },
+  {
+    "id": "daily_037",
+    "vietnamese": "Tiền",
+    "japanese": "お金",
+    "pronunciation": "ティエン",
+    "audio_url": "/audio/words/daily/tien.mp3",
+    "category": "daily",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Cần tiền.",
+      "japanese": "お金が必要。"
+    }
+  },
+  {
+    "id": "daily_038",
+    "vietnamese": "Nước",
+    "japanese": "水",
+    "pronunciation": "ヌオック",
+    "audio_url": "/audio/words/daily/nuoc.mp3",
+    "category": "daily",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Uống nước.",
+      "japanese": "水を飲む。"
+    }
+  },
+  {
+    "id": "daily_039",
+    "vietnamese": "Thời gian",
+    "japanese": "時間",
+    "pronunciation": "トイ ザン",
+    "audio_url": "/audio/words/daily/thoi-gian.mp3",
+    "category": "daily",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Không có thời gian.",
+      "japanese": "時間がない。"
+    }
+  },
+  {
+    "id": "daily_040",
+    "vietnamese": "Tên",
+    "japanese": "名前",
+    "pronunciation": "テン",
+    "audio_url": "/audio/words/daily/ten.mp3",
+    "category": "daily",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Tên gì?",
+      "japanese": "名前は何？"
+    }
+  },
+  {
+    "id": "daily_041",
+    "vietnamese": "Người",
+    "japanese": "人",
+    "pronunciation": "グオイ",
+    "audio_url": "/audio/words/daily/nguoi.mp3",
+    "category": "daily",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Nhiều người.",
+      "japanese": "たくさんの人。"
+    }
+  },
+  {
+    "id": "daily_042",
+    "vietnamese": "Việc",
+    "japanese": "仕事／用事",
+    "pronunciation": "ヴィエック",
+    "audio_url": "/audio/words/daily/viec.mp3",
+    "category": "daily",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Làm việc.",
+      "japanese": "仕事をする。"
+    }
+  },
+  {
+    "id": "daily_043",
+    "vietnamese": "Đi",
+    "japanese": "行く",
+    "pronunciation": "ディ",
+    "audio_url": "/audio/words/daily/di.mp3",
+    "category": "daily",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Đi làm.",
+      "japanese": "仕事に行く。"
+    }
+  },
+  {
+    "id": "daily_044",
+    "vietnamese": "Đến",
+    "japanese": "来る",
+    "pronunciation": "デン",
+    "audio_url": "/audio/words/daily/den-come.mp3",
+    "category": "daily",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Đến đây.",
+      "japanese": "ここに来る。"
+    }
+  },
+  {
+    "id": "daily_045",
+    "vietnamese": "Ăn",
+    "japanese": "食べる",
+    "pronunciation": "アン",
+    "audio_url": "/audio/words/daily/an.mp3",
+    "category": "daily",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Ăn cơm.",
+      "japanese": "ご飯を食べる。"
+    }
+  },
+  {
+    "id": "daily_046",
+    "vietnamese": "Uống",
+    "japanese": "飲む",
+    "pronunciation": "ウオン",
+    "audio_url": "/audio/words/daily/uong.mp3",
+    "category": "daily",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Uống cà phê.",
+      "japanese": "コーヒーを飲む。"
+    }
+  },
+  {
+    "id": "daily_047",
+    "vietnamese": "Nói",
+    "japanese": "話す",
+    "pronunciation": "ノイ",
+    "audio_url": "/audio/words/daily/noi.mp3",
+    "category": "daily",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Nói tiếng Việt.",
+      "japanese": "ベトナム語を話す。"
+    }
+  },
+  {
+    "id": "daily_048",
+    "vietnamese": "Nghe",
+    "japanese": "聞く",
+    "pronunciation": "ゲ",
+    "audio_url": "/audio/words/daily/nghe.mp3",
+    "category": "daily",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Nghe nhạc.",
+      "japanese": "音楽を聞く。"
+    }
+  },
+  {
+    "id": "daily_049",
+    "vietnamese": "Xem",
+    "japanese": "見る",
+    "pronunciation": "セム",
+    "audio_url": "/audio/words/daily/xem.mp3",
+    "category": "daily",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Xem phim.",
+      "japanese": "映画を見る。"
+    }
+  },
+  {
+    "id": "daily_050",
+    "vietnamese": "Học",
+    "japanese": "勉強する",
+    "pronunciation": "ホック",
+    "audio_url": "/audio/words/daily/hoc.mp3",
+    "category": "daily",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Học tiếng Việt.",
+      "japanese": "ベトナム語を勉強する。"
+    }
+  }
+]

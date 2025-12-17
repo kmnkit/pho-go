@@ -1,0 +1,522 @@
+[
+  {
+    "id": "food_001",
+    "vietnamese": "Cơm",
+    "japanese": "ご飯",
+    "pronunciation": "コム",
+    "audio_url": "/audio/words/food/com.mp3",
+    "category": "food",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Ăn cơm.",
+      "japanese": "ご飯を食べる。"
+    }
+  },
+  {
+    "id": "food_002",
+    "vietnamese": "Phở",
+    "japanese": "フォー（麺料理）",
+    "pronunciation": "フォー",
+    "audio_url": "/audio/words/food/pho.mp3",
+    "category": "food",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Phở bò rất ngon.",
+      "japanese": "牛肉フォーがとても美味しい。"
+    }
+  },
+  {
+    "id": "food_003",
+    "vietnamese": "Bánh mì",
+    "japanese": "バインミー（サンドイッチ）",
+    "pronunciation": "バイン ミ",
+    "audio_url": "/audio/words/food/banh-mi.mp3",
+    "category": "food",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Mua bánh mì.",
+      "japanese": "バインミーを買う。"
+    }
+  },
+  {
+    "id": "food_004",
+    "vietnamese": "Cà phê",
+    "japanese": "コーヒー",
+    "pronunciation": "カー フェー",
+    "audio_url": "/audio/words/food/ca-phe.mp3",
+    "category": "food",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Uống cà phê sữa.",
+      "japanese": "ミルクコーヒーを飲む。"
+    }
+  },
+  {
+    "id": "food_005",
+    "vietnamese": "Trà",
+    "japanese": "お茶",
+    "pronunciation": "チャー",
+    "audio_url": "/audio/words/food/tra.mp3",
+    "category": "food",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Trà đá.",
+      "japanese": "アイスティー。"
+    }
+  },
+  {
+    "id": "food_006",
+    "vietnamese": "Bia",
+    "japanese": "ビール",
+    "pronunciation": "ビア",
+    "audio_url": "/audio/words/food/bia.mp3",
+    "category": "food",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Một chai bia.",
+      "japanese": "ビール一本。"
+    }
+  },
+  {
+    "id": "food_007",
+    "vietnamese": "Rượu",
+    "japanese": "お酒",
+    "pronunciation": "ルオウ",
+    "audio_url": "/audio/words/food/ruou.mp3",
+    "category": "food",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Uống rượu vang.",
+      "japanese": "ワインを飲む。"
+    }
+  },
+  {
+    "id": "food_008",
+    "vietnamese": "Thịt",
+    "japanese": "肉",
+    "pronunciation": "ティット",
+    "audio_url": "/audio/words/food/thit.mp3",
+    "category": "food",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Thịt bò.",
+      "japanese": "牛肉。"
+    }
+  },
+  {
+    "id": "food_009",
+    "vietnamese": "Cá",
+    "japanese": "魚",
+    "pronunciation": "カー",
+    "audio_url": "/audio/words/food/ca.mp3",
+    "category": "food",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Ăn cá.",
+      "japanese": "魚を食べる。"
+    }
+  },
+  {
+    "id": "food_010",
+    "vietnamese": "Gà",
+    "japanese": "鶏肉",
+    "pronunciation": "ガー",
+    "audio_url": "/audio/words/food/ga.mp3",
+    "category": "food",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Gà rán.",
+      "japanese": "フライドチキン。"
+    }
+  },
+  {
+    "id": "food_011",
+    "vietnamese": "Rau",
+    "japanese": "野菜",
+    "pronunciation": "ザウ",
+    "audio_url": "/audio/words/food/rau.mp3",
+    "category": "food",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Rau tươi.",
+      "japanese": "新鮮な野菜。"
+    }
+  },
+  {
+    "id": "food_012",
+    "vietnamese": "Trái cây",
+    "japanese": "果物",
+    "pronunciation": "チャイ カイ",
+    "audio_url": "/audio/words/food/trai-cay.mp3",
+    "category": "food",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Ăn trái cây.",
+      "japanese": "果物を食べる。"
+    }
+  },
+  {
+    "id": "food_013",
+    "vietnamese": "Chuối",
+    "japanese": "バナナ",
+    "pronunciation": "チュオイ",
+    "audio_url": "/audio/words/food/chuoi.mp3",
+    "category": "food",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Quả chuối.",
+      "japanese": "バナナ一本。"
+    }
+  },
+  {
+    "id": "food_014",
+    "vietnamese": "Cam",
+    "japanese": "オレンジ",
+    "pronunciation": "カム",
+    "audio_url": "/audio/words/food/cam.mp3",
+    "category": "food",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Nước cam.",
+      "japanese": "オレンジジュース。"
+    }
+  },
+  {
+    "id": "food_015",
+    "vietnamese": "Táo",
+    "japanese": "リンゴ",
+    "pronunciation": "タオ",
+    "audio_url": "/audio/words/food/tao.mp3",
+    "category": "food",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Táo đỏ.",
+      "japanese": "赤いリンゴ。"
+    }
+  },
+  {
+    "id": "food_016",
+    "vietnamese": "Xoài",
+    "japanese": "マンゴー",
+    "pronunciation": "ソアイ",
+    "audio_url": "/audio/words/food/xoai.mp3",
+    "category": "food",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Xoài ngọt.",
+      "japanese": "甘いマンゴー。"
+    }
+  },
+  {
+    "id": "food_017",
+    "vietnamese": "Sữa",
+    "japanese": "牛乳",
+    "pronunciation": "スア",
+    "audio_url": "/audio/words/food/sua.mp3",
+    "category": "food",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Uống sữa.",
+      "japanese": "牛乳を飲む。"
+    }
+  },
+  {
+    "id": "food_018",
+    "vietnamese": "Trứng",
+    "japanese": "卵",
+    "pronunciation": "チュン",
+    "audio_url": "/audio/words/food/trung.mp3",
+    "category": "food",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Trứng gà.",
+      "japanese": "鶏卵。"
+    }
+  },
+  {
+    "id": "food_019",
+    "vietnamese": "Muối",
+    "japanese": "塩",
+    "pronunciation": "ムオイ",
+    "audio_url": "/audio/words/food/muoi.mp3",
+    "category": "food",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Cho thêm muối.",
+      "japanese": "塩を追加する。"
+    }
+  },
+  {
+    "id": "food_020",
+    "vietnamese": "Đường",
+    "japanese": "砂糖",
+    "pronunciation": "ドゥオン",
+    "audio_url": "/audio/words/food/duong.mp3",
+    "category": "food",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Đường trắng.",
+      "japanese": "白砂糖。"
+    }
+  },
+  {
+    "id": "food_021",
+    "vietnamese": "Bún",
+    "japanese": "ブン（米麺）",
+    "pronunciation": "ブン",
+    "audio_url": "/audio/words/food/bun.mp3",
+    "category": "food",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Bún chả.",
+      "japanese": "ブンチャー。"
+    }
+  },
+  {
+    "id": "food_022",
+    "vietnamese": "Mì",
+    "japanese": "麺",
+    "pronunciation": "ミー",
+    "audio_url": "/audio/words/food/mi.mp3",
+    "category": "food",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Mì gói.",
+      "japanese": "インスタント麺。"
+    }
+  },
+  {
+    "id": "food_023",
+    "vietnamese": "Bánh ngọt",
+    "japanese": "ケーキ／お菓子",
+    "pronunciation": "バイン ゴット",
+    "audio_url": "/audio/words/food/banh-ngot.mp3",
+    "category": "food",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Ăn bánh ngọt.",
+      "japanese": "ケーキを食べる。"
+    }
+  },
+  {
+    "id": "food_024",
+    "vietnamese": "Kem",
+    "japanese": "アイスクリーム",
+    "pronunciation": "ケム",
+    "audio_url": "/audio/words/food/kem.mp3",
+    "category": "food",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Kem vani.",
+      "japanese": "バニラアイス。"
+    }
+  },
+  {
+    "id": "food_025",
+    "vietnamese": "Đậu",
+    "japanese": "豆",
+    "pronunciation": "ダウ",
+    "audio_url": "/audio/words/food/dau.mp3",
+    "category": "food",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Đậu phụ.",
+      "japanese": "豆腐。"
+    }
+  },
+  {
+    "id": "food_026",
+    "vietnamese": "Gạo",
+    "japanese": "米",
+    "pronunciation": "ガオ",
+    "audio_url": "/audio/words/food/gao.mp3",
+    "category": "food",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Nấu cơm từ gạo.",
+      "japanese": "米からご飯を炊く。"
+    }
+  },
+  {
+    "id": "food_027",
+    "vietnamese": "Tôm",
+    "japanese": "エビ",
+    "pronunciation": "トム",
+    "audio_url": "/audio/words/food/tom.mp3",
+    "category": "food",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Tôm sú.",
+      "japanese": "ブラックタイガー。"
+    }
+  },
+  {
+    "id": "food_028",
+    "vietnamese": "Mực",
+    "japanese": "イカ",
+    "pronunciation": "ムック",
+    "audio_url": "/audio/words/food/muc.mp3",
+    "category": "food",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Mực nướng.",
+      "japanese": "焼きイカ。"
+    }
+  },
+  {
+    "id": "food_029",
+    "vietnamese": "Hải sản",
+    "japanese": "海産物",
+    "pronunciation": "ハイ サン",
+    "audio_url": "/audio/words/food/hai-san.mp3",
+    "category": "food",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Ăn hải sản.",
+      "japanese": "海鮮を食べる。"
+    }
+  },
+  {
+    "id": "food_030",
+    "vietnamese": "Súp",
+    "japanese": "スープ",
+    "pronunciation": "スップ",
+    "audio_url": "/audio/words/food/sup.mp3",
+    "category": "food",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Súp rau củ.",
+      "japanese": "野菜スープ。"
+    }
+  },
+  {
+    "id": "food_031",
+    "vietnamese": "Ngon",
+    "japanese": "美味しい",
+    "pronunciation": "ゴン",
+    "audio_url": "/audio/words/food/ngon.mp3",
+    "category": "food",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Rất ngon!",
+      "japanese": "とても美味しい！"
+    }
+  },
+  {
+    "id": "food_032",
+    "vietnamese": "Dở",
+    "japanese": "まずい",
+    "pronunciation": "ゾー",
+    "audio_url": "/audio/words/food/do.mp3",
+    "category": "food",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Không ngon, hơi dở.",
+      "japanese": "美味しくない、少しまずい。"
+    }
+  },
+  {
+    "id": "food_033",
+    "vietnamese": "Cay",
+    "japanese": "辛い",
+    "pronunciation": "カイ",
+    "audio_url": "/audio/words/food/cay.mp3",
+    "category": "food",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Rất cay.",
+      "japanese": "とても辛い。"
+    }
+  },
+  {
+    "id": "food_034",
+    "vietnamese": "Ngọt",
+    "japanese": "甘い",
+    "pronunciation": "ゴット",
+    "audio_url": "/audio/words/food/ngot.mp3",
+    "category": "food",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Quá ngọt.",
+      "japanese": "甘すぎる。"
+    }
+  },
+  {
+    "id": "food_035",
+    "vietnamese": "Mặn",
+    "japanese": "塩辛い",
+    "pronunciation": "マン",
+    "audio_url": "/audio/words/food/man.mp3",
+    "category": "food",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Hơi mặn.",
+      "japanese": "少し塩辛い。"
+    }
+  },
+  {
+    "id": "food_036",
+    "vietnamese": "Chua",
+    "japanese": "酸っぱい",
+    "pronunciation": "チュア",
+    "audio_url": "/audio/words/food/chua.mp3",
+    "category": "food",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Vị chua.",
+      "japanese": "酸っぱい味。"
+    }
+  },
+  {
+    "id": "food_037",
+    "vietnamese": "Đói",
+    "japanese": "お腹が空いた",
+    "pronunciation": "ドイ",
+    "audio_url": "/audio/words/food/doi.mp3",
+    "category": "food",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Tôi đói.",
+      "japanese": "お腹が空きました。"
+    }
+  },
+  {
+    "id": "food_038",
+    "vietnamese": "No",
+    "japanese": "お腹がいっぱい",
+    "pronunciation": "ノー",
+    "audio_url": "/audio/words/food/no.mp3",
+    "category": "food",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Tôi no rồi.",
+      "japanese": "お腹がいっぱいです。"
+    }
+  },
+  {
+    "id": "food_039",
+    "vietnamese": "Khát",
+    "japanese": "喉が渇いた",
+    "pronunciation": "カット",
+    "audio_url": "/audio/words/food/khat.mp3",
+    "category": "food",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Tôi khát nước.",
+      "japanese": "喉が渇きました。"
+    }
+  },
+  {
+    "id": "food_040",
+    "vietnamese": "Nhà hàng",
+    "japanese": "レストラン",
+    "pronunciation": "ニャー ハン",
+    "audio_url": "/audio/words/food/nha-hang.mp3",
+    "category": "food",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Đi nhà hàng.",
+      "japanese": "レストランに行く。"
+    }
+  }
+]

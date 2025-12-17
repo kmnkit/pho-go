@@ -1,0 +1,652 @@
+[
+  {
+    "id": "biz_001",
+    "vietnamese": "Công ty",
+    "japanese": "会社",
+    "pronunciation": "コン ティ",
+    "audio_url": "/audio/words/business/cong-ty.mp3",
+    "category": "business",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Công ty chúng tôi.",
+      "japanese": "私たちの会社。"
+    }
+  },
+  {
+    "id": "biz_002",
+    "vietnamese": "Văn phòng",
+    "japanese": "オフィス",
+    "pronunciation": "ヴァン フォン",
+    "audio_url": "/audio/words/business/van-phong.mp3",
+    "category": "business",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Đến văn phòng.",
+      "japanese": "オフィスに来る。"
+    }
+  },
+  {
+    "id": "biz_003",
+    "vietnamese": "Họp",
+    "japanese": "会議",
+    "pronunciation": "ホップ",
+    "audio_url": "/audio/words/business/hop.mp3",
+    "category": "business",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Cuộc họp quan trọng.",
+      "japanese": "重要な会議。"
+    }
+  },
+  {
+    "id": "biz_004",
+    "vietnamese": "Dự án",
+    "japanese": "プロジェクト",
+    "pronunciation": "ズー アン",
+    "audio_url": "/audio/words/business/du-an.mp3",
+    "category": "business",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Dự án mới.",
+      "japanese": "新しいプロジェクト。"
+    }
+  },
+  {
+    "id": "biz_005",
+    "vietnamese": "Báo cáo",
+    "japanese": "報告",
+    "pronunciation": "バオ カオ",
+    "audio_url": "/audio/words/business/bao-cao.mp3",
+    "category": "business",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Viết báo cáo.",
+      "japanese": "報告書を書く。"
+    }
+  },
+  {
+    "id": "biz_006",
+    "vietnamese": "Email",
+    "japanese": "メール",
+    "pronunciation": "イーメイル",
+    "audio_url": "/audio/words/business/email.mp3",
+    "category": "business",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Gửi email.",
+      "japanese": "メールを送る。"
+    }
+  },
+  {
+    "id": "biz_007",
+    "vietnamese": "Thư",
+    "japanese": "手紙／メール",
+    "pronunciation": "トゥー",
+    "audio_url": "/audio/words/business/thu.mp3",
+    "category": "business",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Thư điện tử.",
+      "japanese": "電子メール。"
+    }
+  },
+  {
+    "id": "biz_008",
+    "vietnamese": "Giám đốc",
+    "japanese": "社長／取締役",
+    "pronunciation": "ザム ドック",
+    "audio_url": "/audio/words/business/giam-doc.mp3",
+    "category": "business",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Giám đốc điều hành.",
+      "japanese": "最高経営責任者。"
+    }
+  },
+  {
+    "id": "biz_009",
+    "vietnamese": "Nhân viên",
+    "japanese": "社員",
+    "pronunciation": "ニャン ヴィエン",
+    "audio_url": "/audio/words/business/nhan-vien.mp3",
+    "category": "business",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Nhân viên mới.",
+      "japanese": "新入社員。"
+    }
+  },
+  {
+    "id": "biz_010",
+    "vietnamese": "Đồng nghiệp",
+    "japanese": "同僚",
+    "pronunciation": "ドン ギエップ",
+    "audio_url": "/audio/words/business/dong-nghiep.mp3",
+    "category": "business",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Đồng nghiệp thân thiết.",
+      "japanese": "親しい同僚。"
+    }
+  },
+  {
+    "id": "biz_011",
+    "vietnamese": "Khách hàng",
+    "japanese": "顧客",
+    "pronunciation": "カック ハン",
+    "audio_url": "/audio/words/business/khach-hang.mp3",
+    "category": "business",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Khách hàng quan trọng.",
+      "japanese": "重要な顧客。"
+    }
+  },
+  {
+    "id": "biz_012",
+    "vietnamese": "Hợp đồng",
+    "japanese": "契約",
+    "pronunciation": "ホップ ドン",
+    "audio_url": "/audio/words/business/hop-dong.mp3",
+    "category": "business",
+    "difficulty": "intermediate",
+    "example_sentence": {
+      "vietnamese": "Ký hợp đồng.",
+      "japanese": "契約に署名する。"
+    }
+  },
+  {
+    "id": "biz_013",
+    "vietnamese": "Tài liệu",
+    "japanese": "資料",
+    "pronunciation": "タイ リウ",
+    "audio_url": "/audio/words/business/tai-lieu.mp3",
+    "category": "business",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Chuẩn bị tài liệu.",
+      "japanese": "資料を準備する。"
+    }
+  },
+  {
+    "id": "biz_014",
+    "vietnamese": "Lịch",
+    "japanese": "スケジュール",
+    "pronunciation": "リック",
+    "audio_url": "/audio/words/business/lich.mp3",
+    "category": "business",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Kiểm tra lịch.",
+      "japanese": "スケジュールを確認する。"
+    }
+  },
+  {
+    "id": "biz_015",
+    "vietnamese": "Cuộc gọi",
+    "japanese": "電話",
+    "pronunciation": "クオック ゴイ",
+    "audio_url": "/audio/words/business/cuoc-goi.mp3",
+    "category": "business",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Cuộc gọi quan trọng.",
+      "japanese": "重要な電話。"
+    }
+  },
+  {
+    "id": "biz_016",
+    "vietnamese": "Thảo luận",
+    "japanese": "議論する",
+    "pronunciation": "タオ ルアン",
+    "audio_url": "/audio/words/business/thao-luan.mp3",
+    "category": "business",
+    "difficulty": "intermediate",
+    "example_sentence": {
+      "vietnamese": "Thảo luận về dự án.",
+      "japanese": "プロジェクトについて議論する。"
+    }
+  },
+  {
+    "id": "biz_017",
+    "vietnamese": "Quyết định",
+    "japanese": "決定",
+    "pronunciation": "クイエット ディン",
+    "audio_url": "/audio/words/business/quyet-dinh.mp3",
+    "category": "business",
+    "difficulty": "intermediate",
+    "example_sentence": {
+      "vietnamese": "Đưa ra quyết định.",
+      "japanese": "決定を下す。"
+    }
+  },
+  {
+    "id": "biz_018",
+    "vietnamese": "Kế hoạch",
+    "japanese": "計画",
+    "pronunciation": "ケー ホアック",
+    "audio_url": "/audio/words/business/ke-hoach.mp3",
+    "category": "business",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Lập kế hoạch.",
+      "japanese": "計画を立てる。"
+    }
+  },
+  {
+    "id": "biz_019",
+    "vietnamese": "Tiến độ",
+    "japanese": "進捗",
+    "pronunciation": "ティエン ドー",
+    "audio_url": "/audio/words/business/tien-do.mp3",
+    "category": "business",
+    "difficulty": "intermediate",
+    "example_sentence": {
+      "vietnamese": "Kiểm tra tiến độ.",
+      "japanese": "進捗を確認する。"
+    }
+  },
+  {
+    "id": "biz_020",
+    "vietnamese": "Hoàn thành",
+    "japanese": "完了する",
+    "pronunciation": "ホアン タイン",
+    "audio_url": "/audio/words/business/hoan-thanh.mp3",
+    "category": "business",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Hoàn thành công việc.",
+      "japanese": "仕事を完了する。"
+    }
+  },
+  {
+    "id": "biz_021",
+    "vietnamese": "Chất lượng",
+    "japanese": "品質",
+    "pronunciation": "チャット ルオン",
+    "audio_url": "/audio/words/business/chat-luong.mp3",
+    "category": "business",
+    "difficulty": "intermediate",
+    "example_sentence": {
+      "vietnamese": "Chất lượng cao.",
+      "japanese": "高品質。"
+    }
+  },
+  {
+    "id": "biz_022",
+    "vietnamese": "Vấn đề",
+    "japanese": "問題",
+    "pronunciation": "ヴァン デー",
+    "audio_url": "/audio/words/business/van-de.mp3",
+    "category": "business",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Giải quyết vấn đề.",
+      "japanese": "問題を解決する。"
+    }
+  },
+  {
+    "id": "biz_023",
+    "vietnamese": "Giải pháp",
+    "japanese": "解決策",
+    "pronunciation": "ザイ ファップ",
+    "audio_url": "/audio/words/business/giai-phap.mp3",
+    "category": "business",
+    "difficulty": "intermediate",
+    "example_sentence": {
+      "vietnamese": "Tìm giải pháp.",
+      "japanese": "解決策を見つける。"
+    }
+  },
+  {
+    "id": "biz_024",
+    "vietnamese": "Phần mềm",
+    "japanese": "ソフトウェア",
+    "pronunciation": "ファン メム",
+    "audio_url": "/audio/words/business/phan-mem.mp3",
+    "category": "business",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Phát triển phần mềm.",
+      "japanese": "ソフトウェアを開発する。"
+    }
+  },
+  {
+    "id": "biz_025",
+    "vietnamese": "Phần cứng",
+    "japanese": "ハードウェア",
+    "pronunciation": "ファン クン",
+    "audio_url": "/audio/words/business/phan-cung.mp3",
+    "category": "business",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Phần cứng máy tính.",
+      "japanese": "コンピューターのハードウェア。"
+    }
+  },
+  {
+    "id": "biz_026",
+    "vietnamese": "Hệ thống",
+    "japanese": "システム",
+    "pronunciation": "ヘー トン",
+    "audio_url": "/audio/words/business/he-thong.mp3",
+    "category": "business",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Hệ thống quản lý.",
+      "japanese": "管理システム。"
+    }
+  },
+  {
+    "id": "biz_027",
+    "vietnamese": "Dữ liệu",
+    "japanese": "データ",
+    "pronunciation": "ズー リウ",
+    "audio_url": "/audio/words/business/du-lieu.mp3",
+    "category": "business",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Phân tích dữ liệu.",
+      "japanese": "データを分析する。"
+    }
+  },
+  {
+    "id": "biz_028",
+    "vietnamese": "Mạng",
+    "japanese": "ネットワーク",
+    "pronunciation": "マン",
+    "audio_url": "/audio/words/business/mang.mp3",
+    "category": "business",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Mạng internet.",
+      "japanese": "インターネットネットワーク。"
+    }
+  },
+  {
+    "id": "biz_029",
+    "vietnamese": "Website",
+    "japanese": "ウェブサイト",
+    "pronunciation": "ウェブサイト",
+    "audio_url": "/audio/words/business/website.mp3",
+    "category": "business",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Thiết kế website.",
+      "japanese": "ウェブサイトをデザインする。"
+    }
+  },
+  {
+    "id": "biz_030",
+    "vietnamese": "Ứng dụng",
+    "japanese": "アプリケーション",
+    "pronunciation": "ウン ズン",
+    "audio_url": "/audio/words/business/ung-dung.mp3",
+    "category": "business",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Ứng dụng di động.",
+      "japanese": "モバイルアプリケーション。"
+    }
+  },
+  {
+    "id": "biz_031",
+    "vietnamese": "Lập trình",
+    "japanese": "プログラミング",
+    "pronunciation": "ラップ チン",
+    "audio_url": "/audio/words/business/lap-trinh.mp3",
+    "category": "business",
+    "difficulty": "intermediate",
+    "example_sentence": {
+      "vietnamese": "Học lập trình.",
+      "japanese": "プログラミングを学ぶ。"
+    }
+  },
+  {
+    "id": "biz_032",
+    "vietnamese": "Code",
+    "japanese": "コード",
+    "pronunciation": "コード",
+    "audio_url": "/audio/words/business/code.mp3",
+    "category": "business",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Viết code.",
+      "japanese": "コードを書く。"
+    }
+  },
+  {
+    "id": "biz_033",
+    "vietnamese": "Bug",
+    "japanese": "バグ",
+    "pronunciation": "バグ",
+    "audio_url": "/audio/words/business/bug.mp3",
+    "category": "business",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Sửa bug.",
+      "japanese": "バグを修正する。"
+    }
+  },
+  {
+    "id": "biz_034",
+    "vietnamese": "Test",
+    "japanese": "テスト",
+    "pronunciation": "テスト",
+    "audio_url": "/audio/words/business/test.mp3",
+    "category": "business",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Chạy test.",
+      "japanese": "テストを実行する。"
+    }
+  },
+  {
+    "id": "biz_035",
+    "vietnamese": "Deploy",
+    "japanese": "デプロイ",
+    "pronunciation": "デプロイ",
+    "audio_url": "/audio/words/business/deploy.mp3",
+    "category": "business",
+    "difficulty": "intermediate",
+    "example_sentence": {
+      "vietnamese": "Deploy lên server.",
+      "japanese": "サーバーにデプロイする。"
+    }
+  },
+  {
+    "id": "biz_036",
+    "vietnamese": "Server",
+    "japanese": "サーバー",
+    "pronunciation": "サーバー",
+    "audio_url": "/audio/words/business/server.mp3",
+    "category": "business",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Server bị lỗi.",
+      "japanese": "サーバーがエラーです。"
+    }
+  },
+  {
+    "id": "biz_037",
+    "vietnamese": "Database",
+    "japanese": "データベース",
+    "pronunciation": "データベース",
+    "audio_url": "/audio/words/business/database.mp3",
+    "category": "business",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Quản lý database.",
+      "japanese": "データベースを管理する。"
+    }
+  },
+  {
+    "id": "biz_038",
+    "vietnamese": "API",
+    "japanese": "API",
+    "pronunciation": "エーピーアイ",
+    "audio_url": "/audio/words/business/api.mp3",
+    "category": "business",
+    "difficulty": "intermediate",
+    "example_sentence": {
+      "vietnamese": "Tạo API mới.",
+      "japanese": "新しいAPIを作成する。"
+    }
+  },
+  {
+    "id": "biz_039",
+    "vietnamese": "Framework",
+    "japanese": "フレームワーク",
+    "pronunciation": "フレームワーク",
+    "audio_url": "/audio/words/business/framework.mp3",
+    "category": "business",
+    "difficulty": "intermediate",
+    "example_sentence": {
+      "vietnamese": "Sử dụng framework React.",
+      "japanese": "Reactフレームワークを使用する。"
+    }
+  },
+  {
+    "id": "biz_040",
+    "vietnamese": "Library",
+    "japanese": "ライブラリ",
+    "pronunciation": "ライブラリ",
+    "audio_url": "/audio/words/business/library.mp3",
+    "category": "business",
+    "difficulty": "intermediate",
+    "example_sentence": {
+      "vietnamese": "Cài đặt library.",
+      "japanese": "ライブラリをインストールする。"
+    }
+  },
+  {
+    "id": "biz_041",
+    "vietnamese": "Version",
+    "japanese": "バージョン",
+    "pronunciation": "バージョン",
+    "audio_url": "/audio/words/business/version.mp3",
+    "category": "business",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Version mới nhất.",
+      "japanese": "最新バージョン。"
+    }
+  },
+  {
+    "id": "biz_042",
+    "vietnamese": "Update",
+    "japanese": "アップデート",
+    "pronunciation": "アップデート",
+    "audio_url": "/audio/words/business/update.mp3",
+    "category": "business",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Update phần mềm.",
+      "japanese": "ソフトウェアをアップデートする。"
+    }
+  },
+  {
+    "id": "biz_043",
+    "vietnamese": "Review",
+    "japanese": "レビュー",
+    "pronunciation": "レビュー",
+    "audio_url": "/audio/words/business/review.mp3",
+    "category": "business",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Review code.",
+      "japanese": "コードをレビューする。"
+    }
+  },
+  {
+    "id": "biz_044",
+    "vietnamese": "Merge",
+    "japanese": "マージ",
+    "pronunciation": "マージ",
+    "audio_url": "/audio/words/business/merge.mp3",
+    "category": "business",
+    "difficulty": "intermediate",
+    "example_sentence": {
+      "vietnamese": "Merge branch.",
+      "japanese": "ブランチをマージする。"
+    }
+  },
+  {
+    "id": "biz_045",
+    "vietnamese": "Deadline",
+    "japanese": "締切",
+    "pronunciation": "デッドライン",
+    "audio_url": "/audio/words/business/deadline.mp3",
+    "category": "business",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Deadline là ngày mai.",
+      "japanese": "締切は明日です。"
+    }
+  },
+  {
+    "id": "biz_046",
+    "vietnamese": "Tăng ca",
+    "japanese": "残業",
+    "pronunciation": "タン カー",
+    "audio_url": "/audio/words/business/tang-ca.mp3",
+    "category": "business",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Phải tăng ca hôm nay.",
+      "japanese": "今日は残業しなければならない。"
+    }
+  },
+  {
+    "id": "biz_047",
+    "vietnamese": "Nghỉ phép",
+    "japanese": "有給休暇",
+    "pronunciation": "ギー フェップ",
+    "audio_url": "/audio/words/business/nghi-phep.mp3",
+    "category": "business",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Xin nghỉ phép.",
+      "japanese": "有給休暇を申請する。"
+    }
+  },
+  {
+    "id": "biz_048",
+    "vietnamese": "Lương",
+    "japanese": "給料",
+    "pronunciation": "ルオン",
+    "audio_url": "/audio/words/business/luong.mp3",
+    "category": "business",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Nhận lương.",
+      "japanese": "給料を受け取る。"
+    }
+  },
+  {
+    "id": "biz_049",
+    "vietnamese": "Thưởng",
+    "japanese": "ボーナス",
+    "pronunciation": "トゥオン",
+    "audio_url": "/audio/words/business/thuong.mp3",
+    "category": "business",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Thưởng cuối năm.",
+      "japanese": "年末ボーナス。"
+    }
+  },
+  {
+    "id": "biz_050",
+    "vietnamese": "Thăng tiến",
+    "japanese": "昇進",
+    "pronunciation": "タン ティエン",
+    "audio_url": "/audio/words/business/thang-tien.mp3",
+    "category": "business",
+    "difficulty": "intermediate",
+    "example_sentence": {
+      "vietnamese": "Cơ hội thăng tiến.",
+      "japanese": "昇進の機会。"
+    }
+  }
+]

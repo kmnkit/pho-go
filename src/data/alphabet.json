@@ -1,0 +1,234 @@
+[
+  {
+    "letter": "A",
+    "uppercase": "A",
+    "lowercase": "a",
+    "pronunciation": "ア",
+    "audio_url": "/audio/alphabet/a.mp3",
+    "examples": ["anh (兄)", "ăn (食べる)", "á (ああ)"]
+  },
+  {
+    "letter": "Ă",
+    "uppercase": "Ă",
+    "lowercase": "ă",
+    "pronunciation": "ア（短く）",
+    "audio_url": "/audio/alphabet/a-breve.mp3",
+    "examples": ["ăn (食べる)", "năm (年)", "bắt (捕まえる)"]
+  },
+  {
+    "letter": "Â",
+    "uppercase": "Â",
+    "lowercase": "â",
+    "pronunciation": "ウ（曖昧）",
+    "audio_url": "/audio/alphabet/a-circumflex.mp3",
+    "examples": ["ân (恩)", "câu (文)", "tâm (心)"]
+  },
+  {
+    "letter": "B",
+    "uppercase": "B",
+    "lowercase": "b",
+    "pronunciation": "ブ",
+    "audio_url": "/audio/alphabet/b.mp3",
+    "examples": ["bạn (友達)", "ba (三)", "báo (新聞)"]
+  },
+  {
+    "letter": "C",
+    "uppercase": "C",
+    "lowercase": "c",
+    "pronunciation": "ク",
+    "audio_url": "/audio/alphabet/c.mp3",
+    "examples": ["cá (魚)", "có (ある)", "cảm ơn (ありがとう)"]
+  },
+  {
+    "letter": "D",
+    "uppercase": "D",
+    "lowercase": "d",
+    "pronunciation": "ザ（北部）/ヤ（南部）",
+    "audio_url": "/audio/alphabet/d.mp3",
+    "examples": ["da (皮膚)", "dạ (はい)", "dễ (簡単)"]
+  },
+  {
+    "letter": "Đ",
+    "uppercase": "Đ",
+    "lowercase": "đ",
+    "pronunciation": "ド",
+    "audio_url": "/audio/alphabet/d-stroke.mp3",
+    "examples": ["đi (行く)", "đây (ここ)", "đẹp (美しい)"]
+  },
+  {
+    "letter": "E",
+    "uppercase": "E",
+    "lowercase": "e",
+    "pronunciation": "エ",
+    "audio_url": "/audio/alphabet/e.mp3",
+    "examples": ["em (弟/妹)", "xe (車)", "kể (語る)"]
+  },
+  {
+    "letter": "Ê",
+    "uppercase": "Ê",
+    "lowercase": "ê",
+    "pronunciation": "エー",
+    "audio_url": "/audio/alphabet/e-circumflex.mp3",
+    "examples": ["ê (ああ)", "kê (並べる)", "rể (娘婿)"]
+  },
+  {
+    "letter": "G",
+    "uppercase": "G",
+    "lowercase": "g",
+    "pronunciation": "グ",
+    "audio_url": "/audio/alphabet/g.mp3",
+    "examples": ["gà (鶏)", "gọi (呼ぶ)", "gió (風)"]
+  },
+  {
+    "letter": "H",
+    "uppercase": "H",
+    "lowercase": "h",
+    "pronunciation": "ハ",
+    "audio_url": "/audio/alphabet/h.mp3",
+    "examples": ["hai (二)", "học (学ぶ)", "hoa (花)"]
+  },
+  {
+    "letter": "I",
+    "uppercase": "I",
+    "lowercase": "i",
+    "pronunciation": "イ",
+    "audio_url": "/audio/alphabet/i.mp3",
+    "examples": ["i (小さい)", "đi (行く)", "bia (ビール)"]
+  },
+  {
+    "letter": "K",
+    "uppercase": "K",
+    "lowercase": "k",
+    "pronunciation": "ク",
+    "audio_url": "/audio/alphabet/k.mp3",
+    "examples": ["không (いいえ)", "khi (時)", "kế (次)"]
+  },
+  {
+    "letter": "L",
+    "uppercase": "L",
+    "lowercase": "l",
+    "pronunciation": "ル",
+    "audio_url": "/audio/alphabet/l.mp3",
+    "examples": ["là (である)", "lớn (大きい)", "lúc (時)"]
+  },
+  {
+    "letter": "M",
+    "uppercase": "M",
+    "lowercase": "m",
+    "pronunciation": "ム",
+    "audio_url": "/audio/alphabet/m.mp3",
+    "examples": ["má (母)", "mới (新しい)", "mùa (季節)"]
+  },
+  {
+    "letter": "N",
+    "uppercase": "N",
+    "lowercase": "n",
+    "pronunciation": "ヌ",
+    "audio_url": "/audio/alphabet/n.mp3",
+    "examples": ["nước (水)", "năm (五)", "này (この)"]
+  },
+  {
+    "letter": "O",
+    "uppercase": "O",
+    "lowercase": "o",
+    "pronunciation": "オ",
+    "audio_url": "/audio/alphabet/o.mp3",
+    "examples": ["ông (祖父)", "ở (住む)", "tô (塗る)"]
+  },
+  {
+    "letter": "Ô",
+    "uppercase": "Ô",
+    "lowercase": "ô",
+    "pronunciation": "オー",
+    "audio_url": "/audio/alphabet/o-circumflex.mp3",
+    "examples": ["ô (傘)", "tôi (私)", "môn (科目)"]
+  },
+  {
+    "letter": "Ơ",
+    "uppercase": "Ơ",
+    "lowercase": "ơ",
+    "pronunciation": "ウー",
+    "audio_url": "/audio/alphabet/o-horn.mp3",
+    "examples": ["ơi (おい)", "cơm (ご飯)", "sơ (初歩)"]
+  },
+  {
+    "letter": "P",
+    "uppercase": "P",
+    "lowercase": "p",
+    "pronunciation": "プ",
+    "audio_url": "/audio/alphabet/p.mp3",
+    "examples": ["pin (電池)", "pa (父)", "ープ (グループ)"]
+  },
+  {
+    "letter": "Q",
+    "uppercase": "Q",
+    "lowercase": "q",
+    "pronunciation": "ク",
+    "audio_url": "/audio/alphabet/q.mp3",
+    "examples": ["quả (果物)", "qua (過ぎる)", "quý (貴重)"]
+  },
+  {
+    "letter": "R",
+    "uppercase": "R",
+    "lowercase": "r",
+    "pronunciation": "ザ（北部）/ル（南部）",
+    "audio_url": "/audio/alphabet/r.mp3",
+    "examples": ["ra (出る)", "rất (とても)", "rau (野菜)"]
+  },
+  {
+    "letter": "S",
+    "uppercase": "S",
+    "lowercase": "s",
+    "pronunciation": "サ",
+    "audio_url": "/audio/alphabet/s.mp3",
+    "examples": ["sáu (六)", "sao (星)", "sách (本)"]
+  },
+  {
+    "letter": "T",
+    "uppercase": "T",
+    "lowercase": "t",
+    "pronunciation": "ト",
+    "audio_url": "/audio/alphabet/t.mp3",
+    "examples": ["tôi (私)", "tám (八)", "tốt (良い)"]
+  },
+  {
+    "letter": "U",
+    "uppercase": "U",
+    "lowercase": "u",
+    "pronunciation": "ウ",
+    "audio_url": "/audio/alphabet/u.mp3",
+    "examples": ["ủa (あれ)", "thu (秋)", "buồn (悲しい)"]
+  },
+  {
+    "letter": "Ư",
+    "uppercase": "Ư",
+    "lowercase": "ư",
+    "pronunciation": "ウー",
+    "audio_url": "/audio/alphabet/u-horn.mp3",
+    "examples": ["ừ (うん)", "tư (思)", "thư (手紙)"]
+  },
+  {
+    "letter": "V",
+    "uppercase": "V",
+    "lowercase": "v",
+    "pronunciation": "ヴ",
+    "audio_url": "/audio/alphabet/v.mp3",
+    "examples": ["và (と)", "ví (財布)", "vai (肩)"]
+  },
+  {
+    "letter": "X",
+    "uppercase": "X",
+    "lowercase": "x",
+    "pronunciation": "サ",
+    "audio_url": "/audio/alphabet/x.mp3",
+    "examples": ["xa (遠い)", "xin (お願いする)", "xanh (青)"]
+  },
+  {
+    "letter": "Y",
+    "uppercase": "Y",
+    "lowercase": "y",
+    "pronunciation": "イ",
+    "audio_url": "/audio/alphabet/y.mp3",
+    "examples": ["y (医)", "ý (意)", "ý nghĩa (意味)"]
+  }
+]

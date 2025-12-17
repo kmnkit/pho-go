@@ -1,0 +1,392 @@
+[
+  {
+    "id": "num_001",
+    "vietnamese": "Không",
+    "japanese": "ゼロ",
+    "pronunciation": "コン",
+    "audio_url": "/audio/words/numbers/khong.mp3",
+    "category": "numbers",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Không có gì.",
+      "japanese": "何もありません。"
+    }
+  },
+  {
+    "id": "num_002",
+    "vietnamese": "Một",
+    "japanese": "一",
+    "pronunciation": "モット",
+    "audio_url": "/audio/words/numbers/mot.mp3",
+    "category": "numbers",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Tôi có một quyển sách.",
+      "japanese": "私は本を一冊持っています。"
+    }
+  },
+  {
+    "id": "num_003",
+    "vietnamese": "Hai",
+    "japanese": "二",
+    "pronunciation": "ハイ",
+    "audio_url": "/audio/words/numbers/hai.mp3",
+    "category": "numbers",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Hai cái bàn.",
+      "japanese": "テーブルが二つ。"
+    }
+  },
+  {
+    "id": "num_004",
+    "vietnamese": "Ba",
+    "japanese": "三",
+    "pronunciation": "バ",
+    "audio_url": "/audio/words/numbers/ba.mp3",
+    "category": "numbers",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Ba người bạn.",
+      "japanese": "三人の友達。"
+    }
+  },
+  {
+    "id": "num_005",
+    "vietnamese": "Bốn",
+    "japanese": "四",
+    "pronunciation": "ボン",
+    "audio_url": "/audio/words/numbers/bon.mp3",
+    "category": "numbers",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Bốn giờ chiều.",
+      "japanese": "午後四時。"
+    }
+  },
+  {
+    "id": "num_006",
+    "vietnamese": "Năm",
+    "japanese": "五",
+    "pronunciation": "ナム",
+    "audio_url": "/audio/words/numbers/nam.mp3",
+    "category": "numbers",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Năm ngày.",
+      "japanese": "五日間。"
+    }
+  },
+  {
+    "id": "num_007",
+    "vietnamese": "Sáu",
+    "japanese": "六",
+    "pronunciation": "サウ",
+    "audio_url": "/audio/words/numbers/sau.mp3",
+    "category": "numbers",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Sáu tháng.",
+      "japanese": "六ヶ月。"
+    }
+  },
+  {
+    "id": "num_008",
+    "vietnamese": "Bảy",
+    "japanese": "七",
+    "pronunciation": "バイ",
+    "audio_url": "/audio/words/numbers/bay.mp3",
+    "category": "numbers",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Bảy ngày trong tuần.",
+      "japanese": "一週間に七日。"
+    }
+  },
+  {
+    "id": "num_009",
+    "vietnamese": "Tám",
+    "japanese": "八",
+    "pronunciation": "タム",
+    "audio_url": "/audio/words/numbers/tam.mp3",
+    "category": "numbers",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Tám giờ sáng.",
+      "japanese": "朝八時。"
+    }
+  },
+  {
+    "id": "num_010",
+    "vietnamese": "Chín",
+    "japanese": "九",
+    "pronunciation": "チン",
+    "audio_url": "/audio/words/numbers/chin.mp3",
+    "category": "numbers",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Chín mươi phần trăm.",
+      "japanese": "九十パーセント。"
+    }
+  },
+  {
+    "id": "num_011",
+    "vietnamese": "Mười",
+    "japanese": "十",
+    "pronunciation": "ムオイ",
+    "audio_url": "/audio/words/numbers/muoi.mp3",
+    "category": "numbers",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Mười năm.",
+      "japanese": "十年。"
+    }
+  },
+  {
+    "id": "num_012",
+    "vietnamese": "Mười một",
+    "japanese": "十一",
+    "pronunciation": "ムオイ モット",
+    "audio_url": "/audio/words/numbers/muoi-mot.mp3",
+    "category": "numbers",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Mười một giờ.",
+      "japanese": "十一時。"
+    }
+  },
+  {
+    "id": "num_013",
+    "vietnamese": "Hai mươi",
+    "japanese": "二十",
+    "pronunciation": "ハイ ムオイ",
+    "audio_url": "/audio/words/numbers/hai-muoi.mp3",
+    "category": "numbers",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Hai mươi tuổi.",
+      "japanese": "二十歳。"
+    }
+  },
+  {
+    "id": "num_014",
+    "vietnamese": "Ba mươi",
+    "japanese": "三十",
+    "pronunciation": "バ ムオイ",
+    "audio_url": "/audio/words/numbers/ba-muoi.mp3",
+    "category": "numbers",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Ba mươi phút.",
+      "japanese": "三十分。"
+    }
+  },
+  {
+    "id": "num_015",
+    "vietnamese": "Bốn mươi",
+    "japanese": "四十",
+    "pronunciation": "ボン ムオイ",
+    "audio_url": "/audio/words/numbers/bon-muoi.mp3",
+    "category": "numbers",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Bốn mươi người.",
+      "japanese": "四十人。"
+    }
+  },
+  {
+    "id": "num_016",
+    "vietnamese": "Năm mươi",
+    "japanese": "五十",
+    "pronunciation": "ナム ムオイ",
+    "audio_url": "/audio/words/numbers/nam-muoi.mp3",
+    "category": "numbers",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Năm mươi nghìn đồng.",
+      "japanese": "五万ドン。"
+    }
+  },
+  {
+    "id": "num_017",
+    "vietnamese": "Một trăm",
+    "japanese": "百",
+    "pronunciation": "モット チャム",
+    "audio_url": "/audio/words/numbers/mot-tram.mp3",
+    "category": "numbers",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Một trăm trang.",
+      "japanese": "百ページ。"
+    }
+  },
+  {
+    "id": "num_018",
+    "vietnamese": "Một nghìn",
+    "japanese": "千",
+    "pronunciation": "モット ギン",
+    "audio_url": "/audio/words/numbers/mot-nghin.mp3",
+    "category": "numbers",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Một nghìn đô la.",
+      "japanese": "千ドル。"
+    }
+  },
+  {
+    "id": "num_019",
+    "vietnamese": "Một triệu",
+    "japanese": "百万",
+    "pronunciation": "モット チウ",
+    "audio_url": "/audio/words/numbers/mot-trieu.mp3",
+    "category": "numbers",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Một triệu đồng.",
+      "japanese": "百万ドン。"
+    }
+  },
+  {
+    "id": "num_020",
+    "vietnamese": "Thứ nhất",
+    "japanese": "第一",
+    "pronunciation": "トゥ ニャット",
+    "audio_url": "/audio/words/numbers/thu-nhat.mp3",
+    "category": "numbers",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Thứ nhất trong danh sách.",
+      "japanese": "リストの第一番目。"
+    }
+  },
+  {
+    "id": "num_021",
+    "vietnamese": "Thứ hai",
+    "japanese": "第二",
+    "pronunciation": "トゥ ハイ",
+    "audio_url": "/audio/words/numbers/thu-hai.mp3",
+    "category": "numbers",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Tầng thứ hai.",
+      "japanese": "二階。"
+    }
+  },
+  {
+    "id": "num_022",
+    "vietnamese": "Nửa",
+    "japanese": "半分",
+    "pronunciation": "ヌア",
+    "audio_url": "/audio/words/numbers/nua.mp3",
+    "category": "numbers",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Nửa giờ.",
+      "japanese": "三十分。"
+    }
+  },
+  {
+    "id": "num_023",
+    "vietnamese": "Đôi",
+    "japanese": "ペア／二つ",
+    "pronunciation": "ドーイ",
+    "audio_url": "/audio/words/numbers/doi.mp3",
+    "category": "numbers",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Một đôi giày.",
+      "japanese": "靴一足。"
+    }
+  },
+  {
+    "id": "num_024",
+    "vietnamese": "Cặp",
+    "japanese": "カップル／対",
+    "pronunciation": "カップ",
+    "audio_url": "/audio/words/numbers/cap.mp3",
+    "category": "numbers",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Một cặp đũa.",
+      "japanese": "箸一膳。"
+    }
+  },
+  {
+    "id": "num_025",
+    "vietnamese": "Lần",
+    "japanese": "回",
+    "pronunciation": "ラン",
+    "audio_url": "/audio/words/numbers/lan.mp3",
+    "category": "numbers",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Lần đầu tiên.",
+      "japanese": "初めて。"
+    }
+  },
+  {
+    "id": "num_026",
+    "vietnamese": "Bao nhiêu",
+    "japanese": "いくつ",
+    "pronunciation": "バオ ニウ",
+    "audio_url": "/audio/words/numbers/bao-nhieu.mp3",
+    "category": "numbers",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Bao nhiêu tiền?",
+      "japanese": "いくらですか？"
+    }
+  },
+  {
+    "id": "num_027",
+    "vietnamese": "Mấy",
+    "japanese": "いくつ（少数）",
+    "pronunciation": "マイ",
+    "audio_url": "/audio/words/numbers/may.mp3",
+    "category": "numbers",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Mấy giờ rồi?",
+      "japanese": "何時ですか？"
+    }
+  },
+  {
+    "id": "num_028",
+    "vietnamese": "Nhiều",
+    "japanese": "多い",
+    "pronunciation": "ニウ",
+    "audio_url": "/audio/words/numbers/nhieu.mp3",
+    "category": "numbers",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Rất nhiều người.",
+      "japanese": "とても多くの人。"
+    }
+  },
+  {
+    "id": "num_029",
+    "vietnamese": "Ít",
+    "japanese": "少ない",
+    "pronunciation": "イット",
+    "audio_url": "/audio/words/numbers/it.mp3",
+    "category": "numbers",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Ít tiền.",
+      "japanese": "お金が少ない。"
+    }
+  },
+  {
+    "id": "num_030",
+    "vietnamese": "Tất cả",
+    "japanese": "全て",
+    "pronunciation": "タット カー",
+    "audio_url": "/audio/words/numbers/tat-ca.mp3",
+    "category": "numbers",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Tất cả mọi người.",
+      "japanese": "全ての人。"
+    }
+  }
+]
