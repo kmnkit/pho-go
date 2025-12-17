@@ -1,0 +1,392 @@
+[
+  {
+    "id": "greet_001",
+    "vietnamese": "Xin chào",
+    "japanese": "こんにちは",
+    "pronunciation": "シン チャオ",
+    "audio_url": "/audio/words/greetings/xin-chao.mp3",
+    "category": "greetings",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Xin chào, bạn khỏe không?",
+      "japanese": "こんにちは、お元気ですか？"
+    }
+  },
+  {
+    "id": "greet_002",
+    "vietnamese": "Chào buổi sáng",
+    "japanese": "おはようございます",
+    "pronunciation": "チャオ ブオイ サン",
+    "audio_url": "/audio/words/greetings/chao-buoi-sang.mp3",
+    "category": "greetings",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Chào buổi sáng! Hôm nay thế nào?",
+      "japanese": "おはようございます！今日はどうですか？"
+    }
+  },
+  {
+    "id": "greet_003",
+    "vietnamese": "Chào buổi chiều",
+    "japanese": "こんにちは（午後）",
+    "pronunciation": "チャオ ブオイ チウ",
+    "audio_url": "/audio/words/greetings/chao-buoi-chieu.mp3",
+    "category": "greetings",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Chào buổi chiều, anh có khỏe không?",
+      "japanese": "こんにちは、お元気ですか？"
+    }
+  },
+  {
+    "id": "greet_004",
+    "vietnamese": "Chào buổi tối",
+    "japanese": "こんばんは",
+    "pronunciation": "チャオ ブオイ トイ",
+    "audio_url": "/audio/words/greetings/chao-buoi-toi.mp3",
+    "category": "greetings",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Chào buổi tối, chúc ngủ ngon!",
+      "japanese": "こんばんは、おやすみなさい！"
+    }
+  },
+  {
+    "id": "greet_005",
+    "vietnamese": "Tạm biệt",
+    "japanese": "さようなら",
+    "pronunciation": "タム ビエット",
+    "audio_url": "/audio/words/greetings/tam-biet.mp3",
+    "category": "greetings",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Tạm biệt, hẹn gặp lại!",
+      "japanese": "さようなら、また会いましょう！"
+    }
+  },
+  {
+    "id": "greet_006",
+    "vietnamese": "Hẹn gặp lại",
+    "japanese": "また会いましょう",
+    "pronunciation": "ヘン ガップ ライ",
+    "audio_url": "/audio/words/greetings/hen-gap-lai.mp3",
+    "category": "greetings",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Hẹn gặp lại vào tuần sau!",
+      "japanese": "来週また会いましょう！"
+    }
+  },
+  {
+    "id": "greet_007",
+    "vietnamese": "Cảm ơn",
+    "japanese": "ありがとうございます",
+    "pronunciation": "カム オン",
+    "audio_url": "/audio/words/greetings/cam-on.mp3",
+    "category": "greetings",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Cảm ơn bạn rất nhiều!",
+      "japanese": "本当にありがとうございます！"
+    }
+  },
+  {
+    "id": "greet_008",
+    "vietnamese": "Xin lỗi",
+    "japanese": "ごめんなさい",
+    "pronunciation": "シン ロイ",
+    "audio_url": "/audio/words/greetings/xin-loi.mp3",
+    "category": "greetings",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Xin lỗi, tôi đến muộn.",
+      "japanese": "ごめんなさい、遅れました。"
+    }
+  },
+  {
+    "id": "greet_009",
+    "vietnamese": "Không sao",
+    "japanese": "大丈夫です",
+    "pronunciation": "コン サオ",
+    "audio_url": "/audio/words/greetings/khong-sao.mp3",
+    "category": "greetings",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Không sao, đừng lo lắng!",
+      "japanese": "大丈夫です、心配しないで！"
+    }
+  },
+  {
+    "id": "greet_010",
+    "vietnamese": "Xin vui lòng",
+    "japanese": "どうぞ",
+    "pronunciation": "シン ヴイ ロン",
+    "audio_url": "/audio/words/greetings/xin-vui-long.mp3",
+    "category": "greetings",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Xin vui lòng ngồi xuống.",
+      "japanese": "どうぞお座りください。"
+    }
+  },
+  {
+    "id": "greet_011",
+    "vietnamese": "Bạn khỏe không?",
+    "japanese": "お元気ですか？",
+    "pronunciation": "バン クエ コン？",
+    "audio_url": "/audio/words/greetings/ban-khoe-khong.mp3",
+    "category": "greetings",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Xin chào! Bạn khỏe không?",
+      "japanese": "こんにちは！お元気ですか？"
+    }
+  },
+  {
+    "id": "greet_012",
+    "vietnamese": "Tôi khỏe",
+    "japanese": "元気です",
+    "pronunciation": "トイ クエ",
+    "audio_url": "/audio/words/greetings/toi-khoe.mp3",
+    "category": "greetings",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Cảm ơn, tôi khỏe.",
+      "japanese": "ありがとう、元気です。"
+    }
+  },
+  {
+    "id": "greet_013",
+    "vietnamese": "Rất vui được gặp bạn",
+    "japanese": "お会いできて嬉しいです",
+    "pronunciation": "ザット ヴイ ドゥオック ガップ バン",
+    "audio_url": "/audio/words/greetings/rat-vui-duoc-gap-ban.mp3",
+    "category": "greetings",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Rất vui được gặp bạn lần đầu tiên!",
+      "japanese": "初めてお会いできて嬉しいです！"
+    }
+  },
+  {
+    "id": "greet_014",
+    "vietnamese": "Chúc mừng",
+    "japanese": "おめでとうございます",
+    "pronunciation": "チュック ムン",
+    "audio_url": "/audio/words/greetings/chuc-mung.mp3",
+    "category": "greetings",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Chúc mừng sinh nhật!",
+      "japanese": "お誕生日おめでとうございます！"
+    }
+  },
+  {
+    "id": "greet_015",
+    "vietnamese": "Chúc may mắn",
+    "japanese": "幸運を祈ります",
+    "pronunciation": "チュック マイ マン",
+    "audio_url": "/audio/words/greetings/chuc-may-man.mp3",
+    "category": "greetings",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Chúc may mắn trong công việc mới!",
+      "japanese": "新しい仕事で幸運を祈ります！"
+    }
+  },
+  {
+    "id": "greet_016",
+    "vietnamese": "Tên tôi là",
+    "japanese": "私の名前は〜です",
+    "pronunciation": "テン トイ ラ",
+    "audio_url": "/audio/words/greetings/ten-toi-la.mp3",
+    "category": "greetings",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Xin chào, tên tôi là Tanaka.",
+      "japanese": "こんにちは、私の名前は田中です。"
+    }
+  },
+  {
+    "id": "greet_017",
+    "vietnamese": "Bạn tên là gì?",
+    "japanese": "お名前は何ですか？",
+    "pronunciation": "バン テン ラ ジ？",
+    "audio_url": "/audio/words/greetings/ban-ten-la-gi.mp3",
+    "category": "greetings",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Xin lỗi, bạn tên là gì?",
+      "japanese": "すみません、お名前は何ですか？"
+    }
+  },
+  {
+    "id": "greet_018",
+    "vietnamese": "Không có gì",
+    "japanese": "どういたしまして",
+    "pronunciation": "コン コー ジ",
+    "audio_url": "/audio/words/greetings/khong-co-gi.mp3",
+    "category": "greetings",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Cảm ơn! - Không có gì.",
+      "japanese": "ありがとう！ - どういたしまして。"
+    }
+  },
+  {
+    "id": "greet_019",
+    "vietnamese": "Xin phép",
+    "japanese": "失礼します",
+    "pronunciation": "シン フェップ",
+    "audio_url": "/audio/words/greetings/xin-phep.mp3",
+    "category": "greetings",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Xin phép, tôi ra ngoài một chút.",
+      "japanese": "失礼します、ちょっと外に出ます。"
+    }
+  },
+  {
+    "id": "greet_020",
+    "vietnamese": "Chào tạm biệt",
+    "japanese": "また後で",
+    "pronunciation": "チャオ タム ビエット",
+    "audio_url": "/audio/words/greetings/chao-tam-biet.mp3",
+    "category": "greetings",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Chào tạm biệt, gặp lại chiều nay!",
+      "japanese": "また後で、今日の午後会いましょう！"
+    }
+  },
+  {
+    "id": "greet_021",
+    "vietnamese": "Chúc ngủ ngon",
+    "japanese": "おやすみなさい",
+    "pronunciation": "チュック グー ゴン",
+    "audio_url": "/audio/words/greetings/chuc-ngu-ngon.mp3",
+    "category": "greetings",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Đã muộn rồi, chúc ngủ ngon!",
+      "japanese": "もう遅いですね、おやすみなさい！"
+    }
+  },
+  {
+    "id": "greet_022",
+    "vietnamese": "Chúc một ngày tốt lành",
+    "japanese": "良い一日を",
+    "pronunciation": "チュック モット ガイ トット ライン",
+    "audio_url": "/audio/words/greetings/chuc-mot-ngay-tot-lanh.mp3",
+    "category": "greetings",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Tạm biệt! Chúc một ngày tốt lành!",
+      "japanese": "さようなら！良い一日を！"
+    }
+  },
+  {
+    "id": "greet_023",
+    "vietnamese": "Hân hạnh được gặp",
+    "japanese": "お会いできて光栄です",
+    "pronunciation": "ハン ハイン ドゥオック ガップ",
+    "audio_url": "/audio/words/greetings/han-hanh-duoc-gap.mp3",
+    "category": "greetings",
+    "difficulty": "intermediate",
+    "example_sentence": {
+      "vietnamese": "Hân hạnh được gặp ông giám đốc.",
+      "japanese": "社長にお会いできて光栄です。"
+    }
+  },
+  {
+    "id": "greet_024",
+    "vietnamese": "Xin chúc sức khỏe",
+    "japanese": "ご健康をお祈りします",
+    "pronunciation": "シン チュック スック コエ",
+    "audio_url": "/audio/words/greetings/xin-chuc-suc-khoe.mp3",
+    "category": "greetings",
+    "difficulty": "intermediate",
+    "example_sentence": {
+      "vietnamese": "Xin chúc sức khỏe và thành công!",
+      "japanese": "ご健康と成功をお祈りします！"
+    }
+  },
+  {
+    "id": "greet_025",
+    "vietnamese": "Lâu lắm không gặp",
+    "japanese": "お久しぶりです",
+    "pronunciation": "ラウ ラム コン ガップ",
+    "audio_url": "/audio/words/greetings/lau-lam-khong-gap.mp3",
+    "category": "greetings",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Lâu lắm không gặp! Bạn thế nào rồi?",
+      "japanese": "お久しぶりです！お元気でしたか？"
+    }
+  },
+  {
+    "id": "greet_026",
+    "vietnamese": "Bạn có khỏe không?",
+    "japanese": "お元気ですか？（丁寧）",
+    "pronunciation": "バン コー クエ コン？",
+    "audio_url": "/audio/words/greetings/ban-co-khoe-khong.mp3",
+    "category": "greetings",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Thưa cô, bạn có khỏe không?",
+      "japanese": "先生、お元気ですか？"
+    }
+  },
+  {
+    "id": "greet_027",
+    "vietnamese": "Rất cảm ơn",
+    "japanese": "本当にありがとうございます",
+    "pronunciation": "ザット カム オン",
+    "audio_url": "/audio/words/greetings/rat-cam-on.mp3",
+    "category": "greetings",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Rất cảm ơn sự giúp đỡ của bạn!",
+      "japanese": "ご協力本当にありがとうございます！"
+    }
+  },
+  {
+    "id": "greet_028",
+    "vietnamese": "Xin lỗi nhiều",
+    "japanese": "大変申し訳ございません",
+    "pronunciation": "シン ロイ ニウ",
+    "audio_url": "/audio/words/greetings/xin-loi-nhieu.mp3",
+    "category": "greetings",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Xin lỗi nhiều vì sự bất tiện này.",
+      "japanese": "このご不便を大変申し訳ございません。"
+    }
+  },
+  {
+    "id": "greet_029",
+    "vietnamese": "Chào mừng",
+    "japanese": "ようこそ",
+    "pronunciation": "チャオ ムン",
+    "audio_url": "/audio/words/greetings/chao-mung.mp3",
+    "category": "greetings",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Chào mừng đến Việt Nam!",
+      "japanese": "ベトナムへようこそ！"
+    }
+  },
+  {
+    "id": "greet_030",
+    "vietnamese": "Đi nhé",
+    "japanese": "行きましょう／じゃあね",
+    "pronunciation": "ディ ニェ",
+    "audio_url": "/audio/words/greetings/di-nhe.mp3",
+    "category": "greetings",
+    "difficulty": "beginner",
+    "example_sentence": {
+      "vietnamese": "Đi nhé! Hẹn gặp lại!",
+      "japanese": "じゃあね！また会いましょう！"
+    }
+  }
+]

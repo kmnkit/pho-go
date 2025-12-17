@@ -1,0 +1,219 @@
+[
+  {
+    "id": "ngang",
+    "name": "平声",
+    "vietnamese_name": "Thanh ngang",
+    "symbol": "なし",
+    "description": "音の高さが一定で平らな声調。記号は付かない。",
+    "audio_url": "/audio/tones/ngang.mp3",
+    "pattern": "→",
+    "pitch_level": "中",
+    "examples": [
+      {
+        "word": "ma",
+        "meaning": "幽霊",
+        "pronunciation": "マ"
+      },
+      {
+        "word": "ba",
+        "meaning": "三",
+        "pronunciation": "バ"
+      },
+      {
+        "word": "la",
+        "meaning": "叫ぶ",
+        "pronunciation": "ラ"
+      },
+      {
+        "word": "ca",
+        "meaning": "歌",
+        "pronunciation": "カ"
+      }
+    ]
+  },
+  {
+    "id": "sac",
+    "name": "鋭声",
+    "vietnamese_name": "Thanh sắc",
+    "symbol": "´（アクセント記号）",
+    "description": "音が急激に上がる声調。短く鋭い。",
+    "audio_url": "/audio/tones/sac.mp3",
+    "pattern": "↗",
+    "pitch_level": "高",
+    "examples": [
+      {
+        "word": "má",
+        "meaning": "頬",
+        "pronunciation": "マー↗"
+      },
+      {
+        "word": "bá",
+        "meaning": "伯父",
+        "pronunciation": "バー↗"
+      },
+      {
+        "word": "lá",
+        "meaning": "葉",
+        "pronunciation": "ラー↗"
+      },
+      {
+        "word": "cá",
+        "meaning": "魚",
+        "pronunciation": "カー↗"
+      },
+      {
+        "word": "tám",
+        "meaning": "八",
+        "pronunciation": "タム↗"
+      }
+    ]
+  },
+  {
+    "id": "huyen",
+    "name": "玄声",
+    "vietnamese_name": "Thanh huyền",
+    "symbol": "`（グレイヴ記号）",
+    "description": "音がゆっくりと下がる声調。低く長い。",
+    "audio_url": "/audio/tones/huyen.mp3",
+    "pattern": "↘",
+    "pitch_level": "低",
+    "examples": [
+      {
+        "word": "mà",
+        "meaning": "しかし",
+        "pronunciation": "マー↘"
+      },
+      {
+        "word": "bà",
+        "meaning": "祖母",
+        "pronunciation": "バー↘"
+      },
+      {
+        "word": "là",
+        "meaning": "である",
+        "pronunciation": "ラー↘"
+      },
+      {
+        "word": "cà",
+        "meaning": "茄子",
+        "pronunciation": "カー↘"
+      },
+      {
+        "word": "này",
+        "meaning": "この",
+        "pronunciation": "ナイ↘"
+      }
+    ]
+  },
+  {
+    "id": "hoi",
+    "name": "問声",
+    "vietnamese_name": "Thanh hỏi",
+    "symbol": "?（フック記号）",
+    "description": "音が下がった後、軽く上がる声調。疑問を投げかけるような音。",
+    "audio_url": "/audio/tones/hoi.mp3",
+    "pattern": "↘↗",
+    "pitch_level": "中低から中",
+    "examples": [
+      {
+        "word": "mả",
+        "meaning": "墓",
+        "pronunciation": "マ↘↗"
+      },
+      {
+        "word": "bả",
+        "meaning": "妻（口語）",
+        "pronunciation": "バ↘↗"
+      },
+      {
+        "word": "lả",
+        "meaning": "疲れた",
+        "pronunciation": "ラ↘↗"
+      },
+      {
+        "word": "cả",
+        "meaning": "全て",
+        "pronunciation": "カ↘↗"
+      },
+      {
+        "word": "chỉ",
+        "meaning": "指す",
+        "pronunciation": "チ↘↗"
+      }
+    ]
+  },
+  {
+    "id": "nga",
+    "name": "跌声",
+    "vietnamese_name": "Thanh ngã",
+    "symbol": "~（チルダ記号）",
+    "description": "音が波打つように上下する声調。途中で声門閉鎖がある。",
+    "audio_url": "/audio/tones/nga.mp3",
+    "pattern": "↗~↘",
+    "pitch_level": "高から低",
+    "examples": [
+      {
+        "word": "mã",
+        "meaning": "馬",
+        "pronunciation": "マ～"
+      },
+      {
+        "word": "bã",
+        "meaning": "絞りかす",
+        "pronunciation": "バ～"
+      },
+      {
+        "word": "lã",
+        "meaning": "冷たい",
+        "pronunciation": "ラ～"
+      },
+      {
+        "word": "cã",
+        "meaning": "言い争う",
+        "pronunciation": "カ～"
+      },
+      {
+        "word": "ngã",
+        "meaning": "倒れる",
+        "pronunciation": "ガ～"
+      }
+    ]
+  },
+  {
+    "id": "nang",
+    "name": "重声",
+    "vietnamese_name": "Thanh nặng",
+    "symbol": "．（点）",
+    "description": "音が急激に下がって止まる声調。短く、声門閉鎖で終わる。",
+    "audio_url": "/audio/tones/nang.mp3",
+    "pattern": "↓",
+    "pitch_level": "低（声門閉鎖）",
+    "examples": [
+      {
+        "word": "mạ",
+        "meaning": "苗",
+        "pronunciation": "マッ↓"
+      },
+      {
+        "word": "bạ",
+        "meaning": "無造作に",
+        "pronunciation": "バッ↓"
+      },
+      {
+        "word": "lạ",
+        "meaning": "奇妙な",
+        "pronunciation": "ラッ↓"
+      },
+      {
+        "word": "cạ",
+        "meaning": "こする",
+        "pronunciation": "カッ↓"
+      },
+      {
+        "word": "một",
+        "meaning": "一",
+        "pronunciation": "モッ↓"
+      }
+    ]
+  }
+]

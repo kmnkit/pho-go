@@ -1,0 +1,57 @@
+[
+  {
+    "id": "greetings",
+    "name": "挨拶",
+    "name_vietnamese": "Chào hỏi",
+    "description": "基本的な挨拶、お礼、謝罪などの日常会話に必須の表現",
+    "icon": "👋",
+    "color": "#ef4444",
+    "wordCount": 30,
+    "difficulty": "beginner",
+    "order": 1
+  },
+  {
+    "id": "numbers",
+    "name": "数字",
+    "name_vietnamese": "Số",
+    "description": "1から100までの数字、序数、単位など",
+    "icon": "🔢",
+    "color": "#3b82f6",
+    "wordCount": 30,
+    "difficulty": "beginner",
+    "order": 2
+  },
+  {
+    "id": "daily",
+    "name": "日常語",
+    "name_vietnamese": "Từ hàng ngày",
+    "description": "色、曜日、月、時間、家族、体の部位など日常生活で使う基本語彙",
+    "icon": "🏠",
+    "color": "#10b981",
+    "wordCount": 50,
+    "difficulty": "beginner",
+    "order": 3
+  },
+  {
+    "id": "food",
+    "name": "食べ物",
+    "name_vietnamese": "Đồ ăn",
+    "description": "飲み物、料理、食材、レストランで使う表現",
+    "icon": "🍜",
+    "color": "#f59e0b",
+    "wordCount": 40,
+    "difficulty": "beginner",
+    "order": 4
+  },
+  {
+    "id": "business",
+    "name": "ビジネス",
+    "name_vietnamese": "Kinh doanh",
+    "description": "会議、プロジェクト、IT用語、オフィスで使う表現",
+    "icon": "💼",
+    "color": "#8b5cf6",
+    "wordCount": 50,
+    "difficulty": "intermediate",
+    "order": 5
+  }
+]

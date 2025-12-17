@@ -562,17 +562,63 @@ Phase 1 (MVP) を中心に、実装可能な粒度まで分解しています。
 
 ### 6. デプロイ・運用
 
+#### デプロイプラットフォーム選定
+
+このアプリに最適なデプロイプラットフォームを比較検討しました。
+
+##### プラットフォーム比較表
+
+| プラットフォーム | 推奨度 | メリット | デメリット | コスト |
+|----------------|--------|----------|-----------|--------|
+| **Vercel** | ⭐⭐⭐⭐⭐ | • Next.js最適化<br>• 自動ビルド/デプロイ<br>• Edge Network<br>• プレビューデプロイ<br>• 無料SSL | • 音声ファイル多数で帯域制限の可能性 | 無料プラン: 100GB/月<br>Pro: $20/月 |
+| **Cloudflare Pages** | ⭐⭐⭐⭐ | • 無制限帯域幅<br>• 高速CDN<br>• R2で音声保存可能<br>• 無料プラン充実 | • Next.jsの一部機能制限 | 無料（制限なし） |
+| **Netlify** | ⭐⭐⭐ | • 簡単デプロイ<br>• 無料プラン | • Next.jsサポートがVercelより劣る | 無料: 100GB/月 |
+| **AWS Amplify** | ⭐⭐⭐ | • AWSエコシステム<br>• S3連携容易 | • 設定が複雑<br>• コスト管理必要 | 従量課金 |
+
+##### 最終推奨：Vercel + Cloudflare R2 のハイブリッド構成
+
+**理由:**
+1. **Vercel**: Next.jsアプリ本体のホスティング
+   - Next.js 14の全機能サポート
+   - 自動最適化とEdge配信
+   - GitHubと連携した自動デプロイ
+
+2. **Cloudflare R2**: 音声ファイルの保存・配信
+   - 無料で10GB/月のストレージ
+   - 無制限のダウンロード帯域幅
+   - Cloudflare CDNで高速配信
+   - 月額コスト削減
+
+**代替案（シンプル構成）:**
+- Vercel単体でまず開始し、帯域使用量を監視
+- 必要に応じてCloudflare R2へ移行
+
+---
+
 #### TASK-801: Vercel へのデプロイ設定
 - **優先度**: P0
-- **サイズ**: S
+- **サイズ**: M
 - **依存**: TASK-001
-- **説明**: Vercel でのホスティング設定
+- **説明**: Vercel でのホスティング設定とデプロイパイプライン構築
 - **受け入れ条件**:
+  - [ ] Vercel アカウントが作成されている
   - [ ] Vercel プロジェクトが作成されている
-  - [ ] GitHub との連携が設定されている
+  - [ ] GitHub リポジトリとの連携が設定されている
   - [ ] `main` ブランチへのマージで自動デプロイされる
+  - [ ] プレビューデプロイが機能している（PR作成時）
   - [ ] 環境変数が設定されている（必要に応じて）
+  - [ ] ビルド設定が最適化されている:
+    - Build Command: `npm run build`
+    - Output Directory: `.next`
+    - Install Command: `npm install`
   - [ ] カスタムドメインが設定されている（オプション）
+  - [ ] HTTPSが有効化されている
+- **手順**:
+  1. https://vercel.com でアカウント作成
+  2. "New Project" → GitHubリポジトリを選択
+  3. Framework Preset: "Next.js" が自動選択されることを確認
+  4. デプロイ実行
+  5. デプロイURLで動作確認
 
 #### TASK-802: エラー監視の設定
 - **優先度**: P1
@@ -614,6 +660,122 @@ Phase 1 (MVP) を中心に、実装可能な粒度まで分解しています。
     - ライセンス情報
   - [ ] `CONTRIBUTING.md` が作成されている
   - [ ] コードにコメントが適切に記載されている
+
+#### TASK-805: 音声ファイル用 CDN/ストレージ設定
+- **優先度**: P1
+- **サイズ**: M
+- **依存**: TASK-106, TASK-107, TASK-801
+- **説明**: 大量の音声ファイル（200+ MP3）を効率的に配信するためのストレージ設定
+- **受け入れ条件**:
+  - [ ] ストレージソリューションが選択されている:
+    - Option A: Cloudflare R2（推奨）
+    - Option B: Amazon S3 + CloudFront
+    - Option C: Vercel Blob Storage
+  - [ ] 音声ファイルがアップロードされている
+  - [ ] パブリックアクセス設定が完了している
+  - [ ] CORS設定が適切に構成されている
+  - [ ] Next.js設定ファイルで音声URLが環境変数化されている
+  - [ ] CDNキャッシュ設定が最適化されている（Cache-Control ヘッダー）
+  - [ ] 音声ファイルの圧縮が適用されている（可能であれば）
+- **Cloudflare R2 セットアップ手順**:
+  1. Cloudflare アカウント作成
+  2. R2 バケット作成（例: `vietnamese-learning-audio`）
+  3. R2 API トークン作成
+  4. Wrangler CLI で音声ファイル一括アップロード
+  5. カスタムドメイン設定（例: `audio.your-app.com`）
+  6. Next.js の環境変数に `AUDIO_CDN_URL` 設定
+  7. コンポーネントで `${process.env.NEXT_PUBLIC_AUDIO_CDN_URL}/audio/...` を使用
+
+#### TASK-806: 本番環境パフォーマンス最適化
+- **優先度**: P1
+- **サイズ**: L
+- **依存**: TASK-801, TASK-805
+- **説明**: 本番環境での読み込み速度とパフォーマンスの最適化
+- **受け入れ条件**:
+  - [ ] Next.js の本番ビルド最適化が有効:
+    - Image Optimization 有効
+    - Font Optimization 有効
+    - Script Optimization 有効
+  - [ ] 画像が最適化されている:
+    - Next.js Image コンポーネント使用
+    - WebP/AVIF形式への変換
+    - 適切なサイズ指定
+  - [ ] バンドルサイズが最適化されている:
+    - Tree shaking 有効
+    - 動的インポート使用（大きなコンポーネント）
+    - next-bundle-analyzer で分析済み
+  - [ ] キャッシュ戦略が実装されている:
+    - Static Generation (SSG) を最大限活用
+    - ISR（Incremental Static Regeneration）検討
+    - Service Worker / PWA検討（オプション）
+  - [ ] Lighthouse スコア達成:
+    - Performance: 90+
+    - Accessibility: 90+
+    - Best Practices: 90+
+    - SEO: 80+
+  - [ ] Core Web Vitals 目標達成:
+    - LCP (Largest Contentful Paint): < 2.5s
+    - FID (First Input Delay): < 100ms
+    - CLS (Cumulative Layout Shift): < 0.1
+  - [ ] プリロード/プリフェッチ戦略実装:
+    - 音声ファイルの遅延ロード
+    - 次の画面のプリフェッチ
+- **最適化チェックリスト**:
+  ```javascript
+  // next.config.mjs
+  {
+    images: {
+      formats: ['image/avif', 'image/webp'],
+      deviceSizes: [640, 750, 828, 1080, 1200],
+    },
+    compress: true,
+    poweredByHeader: false,
+    reactStrictMode: true,
+  }
+  ```
+
+#### TASK-807: セキュリティ設定
+- **優先度**: P1
+- **サイズ**: M
+- **依存**: TASK-801
+- **説明**: 本番環境のセキュリティ強化
+- **受け入れ条件**:
+  - [ ] セキュリティヘッダーが設定されている:
+    - Content-Security-Policy
+    - X-Frame-Options
+    - X-Content-Type-Options
+    - Referrer-Policy
+    - Permissions-Policy
+  - [ ] HTTPS強制リダイレクト有効
+  - [ ] 環境変数が適切に管理されている（.env.local は .gitignore に含まれる）
+  - [ ] 依存関係の脆弱性チェック実施（npm audit）
+  - [ ] Rate limiting 検討（必要に応じて）
+- **next.config.mjs セキュリティ設定例**:
+  ```javascript
+  {
+    async headers() {
+      return [
+        {
+          source: '/(.*)',
+          headers: [
+            {
+              key: 'X-Frame-Options',
+              value: 'DENY',
+            },
+            {
+              key: 'X-Content-Type-Options',
+              value: 'nosniff',
+            },
+            {
+              key: 'Referrer-Policy',
+              value: 'strict-origin-when-cross-origin',
+            },
+          ],
+        },
+      ];
+    },
+  }
+  ```
 
 ---
 
@@ -667,7 +829,7 @@ Phase 1 (MVP) を中心に、実装可能な粒度まで分解しています。
 
 ### デプロイ前（Week 7）
 1. TASK-704 ~ TASK-705: パフォーマンス・互換性テスト
-2. TASK-801 ~ TASK-804: デプロイ・ドキュメント
+2. TASK-801 ~ TASK-807: デプロイ・CDN・最適化・セキュリティ
 
 ---
 
