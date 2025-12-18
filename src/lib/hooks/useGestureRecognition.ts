@@ -83,11 +83,18 @@ export interface GestureStats {
 }
 
 /**
+ * Drag handler function type from @use-gesture/react
+ * This represents the props spread returned by useDrag()
+ */
+export type DragHandlerProps = ReturnType<typeof useDrag>;
+
+/**
  * Return type of useGestureRecognition hook
  */
 export interface UseGestureRecognitionReturn extends GestureState, GestureControls {
   readonly animation: AnimationState;
-  readonly bindDrag: any; // react-use-gesture binding
+  /** Drag event handler props to spread on target element */
+  readonly bindDrag: DragHandlerProps;
   readonly cssTransform: string;
 }
 

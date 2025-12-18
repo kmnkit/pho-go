@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
+import { getNetworkConnection } from '@/types/browser-apis';
 
 /**
  * Offline state and network information
@@ -50,34 +51,50 @@ export const useOffline = (): UseOfflineReturn => {
   // Update network information
   const updateNetworkInfo = useCallback(() => {
     setIsOnline(navigator.onLine);
-    
+
     // Get connection information if available
-    const connection = (navigator as any).connection || 
-                      (navigator as any).mozConnection || 
-                      (navigator as any).webkitConnection;
-    
+    const connection = getNetworkConnection();
+
     if (connection) {
       setConnectionType(connection.effectiveType || connection.type || null);
-      setDownlink(connection.downlink || null);
-      setRtt(connection.rtt || null);
+      setDownlink(connection.downlink ?? null);
+      setRtt(connection.rtt ?? null);
     }
   }, []);
+
+  // Sync data when coming back online
+  const syncWhenOnline = useCallback(async (): Promise<void> => {
+    if (!isOnline) {
+      console.log('Cannot sync while offline');
+      return;
+    }
+
+    try {
+      // TODO: Implement server sync functionality
+      // For now, just update the last sync timestamp
+      localStorage.setItem('lastSync', new Date().toISOString());
+
+      console.log('Data sync placeholder executed successfully');
+    } catch (error) {
+      console.error('Failed to sync data:', error);
+    }
+  }, [isOnline]);
 
   // Listen for online/offline events
   useEffect(() => {
     updateNetworkInfo();
 
-    const handleOnline = () => {
+    const handleOnline = (): void => {
       updateNetworkInfo();
       // Trigger sync when coming back online
-      syncWhenOnline().catch(console.error);
+      void syncWhenOnline();
     };
 
-    const handleOffline = () => {
+    const handleOffline = (): void => {
       updateNetworkInfo();
     };
 
-    const handleConnectionChange = () => {
+    const handleConnectionChange = (): void => {
       updateNetworkInfo();
     };
 
@@ -85,10 +102,8 @@ export const useOffline = (): UseOfflineReturn => {
     window.addEventListener('offline', handleOffline);
 
     // Listen for connection changes
-    const connection = (navigator as any).connection || 
-                      (navigator as any).mozConnection || 
-                      (navigator as any).webkitConnection;
-    
+    const connection = getNetworkConnection();
+
     if (connection) {
       connection.addEventListener('change', handleConnectionChange);
     }
@@ -96,12 +111,12 @@ export const useOffline = (): UseOfflineReturn => {
     return () => {
       window.removeEventListener('online', handleOnline);
       window.removeEventListener('offline', handleOffline);
-      
+
       if (connection) {
         connection.removeEventListener('change', handleConnectionChange);
       }
     };
-  }, [updateNetworkInfo]);
+  }, [updateNetworkInfo, syncWhenOnline]);
 
   // Preload critical assets for offline use
   const preloadCriticalAssets = useCallback(async (): Promise<void> => {
@@ -134,24 +149,6 @@ export const useOffline = (): UseOfflineReturn => {
       console.error('Failed to preload critical assets:', error);
     }
   }, []);
-
-  // Sync data when coming back online
-  const syncWhenOnline = useCallback(async (): Promise<void> => {
-    if (!isOnline) {
-      console.log('Cannot sync while offline');
-      return;
-    }
-
-    try {
-      // TODO: Implement server sync functionality
-      // For now, just update the last sync timestamp
-      localStorage.setItem('lastSync', new Date().toISOString());
-      
-      console.log('Data sync placeholder executed successfully');
-    } catch (error) {
-      console.error('Failed to sync data:', error);
-    }
-  }, [isOnline]);
 
   // Clear offline cache
   const clearOfflineCache = useCallback(async (): Promise<void> => {

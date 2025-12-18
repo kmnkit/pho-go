@@ -5,6 +5,12 @@
 
 import { onCLS, onFCP, onLCP, onTTFB, onINP } from 'web-vitals';
 import type { Metric } from 'web-vitals';
+import {
+  getMemoryInfo,
+  getBatteryManager,
+  type LayoutShift,
+  type LongTaskTiming,
+} from '@/types/browser-apis';
 
 /**
  * Custom performance metrics specific to the learning app
@@ -170,6 +176,20 @@ export function trackFlashcardAnimation(duration: number): void {
 }
 
 /**
+ * Type guard for LongTaskTiming
+ */
+function isLongTaskTiming(entry: PerformanceEntry): entry is LongTaskTiming {
+  return entry.entryType === 'longtask';
+}
+
+/**
+ * Type guard for LayoutShift
+ */
+function isLayoutShift(entry: PerformanceEntry): entry is LayoutShift {
+  return entry.entryType === 'layout-shift';
+}
+
+/**
  * Setup custom metrics monitoring
  */
 function setupCustomMetricsMonitoring(): void {
@@ -177,7 +197,7 @@ function setupCustomMetricsMonitoring(): void {
   if ('PerformanceObserver' in window) {
     const longTaskObserver = new PerformanceObserver((list) => {
       for (const entry of list.getEntries()) {
-        if (entry.duration > 50) {
+        if (isLongTaskTiming(entry) && entry.duration > 50) {
           console.warn('⏱️ Long task detected:', {
             duration: entry.duration,
             name: entry.name,
@@ -190,20 +210,20 @@ function setupCustomMetricsMonitoring(): void {
 
     try {
       longTaskObserver.observe({ entryTypes: ['longtask'] });
-    } catch (e) {
+    } catch {
       console.warn('Long task monitoring not supported');
     }
 
     // Monitor layout shifts
     const layoutShiftObserver = new PerformanceObserver((list) => {
       for (const entry of list.getEntries()) {
-        if ((entry as any).hadRecentInput) continue;
-        
-        const layoutShift = entry as any;
-        if (layoutShift.value > 0.001) {
+        if (!isLayoutShift(entry)) continue;
+        if (entry.hadRecentInput) continue;
+
+        if (entry.value > 0.001) {
           console.warn('📏 Layout shift detected:', {
-            value: layoutShift.value,
-            sources: layoutShift.sources?.map((s: any) => s.node) || [],
+            value: entry.value,
+            sources: entry.sources?.map((s) => s.node) ?? [],
           });
         }
       }
@@ -211,7 +231,7 @@ function setupCustomMetricsMonitoring(): void {
 
     try {
       layoutShiftObserver.observe({ entryTypes: ['layout-shift'] });
-    } catch (e) {
+    } catch {
       console.warn('Layout shift monitoring not supported');
     }
   }
@@ -221,68 +241,72 @@ function setupCustomMetricsMonitoring(): void {
  * Setup memory usage monitoring
  */
 function setupMemoryMonitoring(): void {
-  if ('memory' in performance) {
-    const checkMemory = () => {
-      const memory = (performance as any).memory;
-      const usedMB = memory.usedJSHeapSize / (1024 * 1024);
-      
-      performanceState.customMetrics.set('memoryUsage', memory.usedJSHeapSize);
-      
-      if (memory.usedJSHeapSize > PERFORMANCE_BUDGETS.maxMemoryUsage) {
-        const violation = `Memory usage exceeded budget: ${usedMB.toFixed(1)}MB`;
-        performanceState.violations.push(violation);
-        console.warn('🧠 Memory usage high:', {
-          used: `${usedMB.toFixed(1)}MB`,
-          limit: `${memory.jsHeapSizeLimit / (1024 * 1024)}MB`,
-          total: `${memory.totalJSHeapSize / (1024 * 1024)}MB`,
-        });
-      }
-    };
+  const memory = getMemoryInfo();
+  if (!memory) return;
 
-    // Check memory every 30 seconds
-    setInterval(checkMemory, 30000);
-    checkMemory(); // Initial check
-  }
+  const checkMemory = (): void => {
+    const currentMemory = getMemoryInfo();
+    if (!currentMemory) return;
+
+    const usedMB = currentMemory.usedJSHeapSize / (1024 * 1024);
+
+    performanceState.customMetrics.set('memoryUsage', currentMemory.usedJSHeapSize);
+
+    if (currentMemory.usedJSHeapSize > PERFORMANCE_BUDGETS.maxMemoryUsage) {
+      const violation = `Memory usage exceeded budget: ${usedMB.toFixed(1)}MB`;
+      performanceState.violations.push(violation);
+      console.warn('🧠 Memory usage high:', {
+        used: `${usedMB.toFixed(1)}MB`,
+        limit: `${currentMemory.jsHeapSizeLimit / (1024 * 1024)}MB`,
+        total: `${currentMemory.totalJSHeapSize / (1024 * 1024)}MB`,
+      });
+    }
+  };
+
+  // Check memory every 30 seconds
+  setInterval(checkMemory, 30000);
+  checkMemory(); // Initial check
 }
 
 /**
  * Setup battery monitoring for mobile devices
  */
 function setupBatteryMonitoring(): void {
-  if ('getBattery' in navigator) {
-    (navigator as any).getBattery().then((battery: any) => {
-      const initialLevel = battery.level;
-      let sessionStartLevel = initialLevel;
-      
-      const checkBatteryDrain = () => {
-        const currentLevel = battery.level;
-        const drain = (sessionStartLevel - currentLevel) * 100;
-        const sessionTime = (performance.now() - performanceState.startTime) / (1000 * 60); // minutes
-        
-        if (sessionTime > 30 && drain > PERFORMANCE_BUDGETS.maxBatteryDrain) {
-          const violation = `Battery drain exceeded budget: ${drain.toFixed(1)}% in ${sessionTime.toFixed(1)} minutes`;
-          performanceState.violations.push(violation);
-          console.warn('🔋 High battery usage:', violation);
-        }
-        
-        console.log(`🔋 Battery: ${(currentLevel * 100).toFixed(0)}% (${drain.toFixed(1)}% drained)`);
-      };
-
-      battery.addEventListener('levelchange', checkBatteryDrain);
-      
-      // Reset session start level on charging
-      battery.addEventListener('chargingchange', () => {
-        if (battery.charging) {
-          sessionStartLevel = battery.level;
-        }
-      });
-
-      // Check every 5 minutes
-      setInterval(checkBatteryDrain, 5 * 60 * 1000);
-    }).catch(() => {
+  void getBatteryManager().then((battery) => {
+    if (!battery) {
       console.log('🔋 Battery monitoring not supported');
+      return;
+    }
+
+    const initialLevel = battery.level;
+    let sessionStartLevel = initialLevel;
+
+    const checkBatteryDrain = (): void => {
+      const currentLevel = battery.level;
+      const drain = (sessionStartLevel - currentLevel) * 100;
+      const sessionTime = (performance.now() - performanceState.startTime) / (1000 * 60); // minutes
+
+      if (sessionTime > 30 && drain > PERFORMANCE_BUDGETS.maxBatteryDrain) {
+        const violation = `Battery drain exceeded budget: ${drain.toFixed(1)}% in ${sessionTime.toFixed(1)} minutes`;
+        performanceState.violations.push(violation);
+        console.warn('🔋 High battery usage:', violation);
+      }
+
+      console.log(`🔋 Battery: ${(currentLevel * 100).toFixed(0)}% (${drain.toFixed(1)}% drained)`);
+    };
+
+    battery.addEventListener('levelchange', checkBatteryDrain);
+
+    // Reset session start level on charging
+    battery.addEventListener('chargingchange', () => {
+      if (battery.charging) {
+        sessionStartLevel = battery.level;
+      }
     });
-  }
+
+    // Check every 5 minutes
+    setInterval(checkBatteryDrain, 5 * 60 * 1000);
+  });
 }
 
 /**

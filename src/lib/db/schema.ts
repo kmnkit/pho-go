@@ -1,11 +1,10 @@
-import { 
-  pgTable, 
-  text, 
-  timestamp, 
-  integer, 
-  jsonb, 
+import {
+  pgTable,
+  text,
+  timestamp,
+  integer,
+  jsonb,
   varchar,
-  boolean,
   uuid,
   primaryKey,
 } from 'drizzle-orm/pg-core';

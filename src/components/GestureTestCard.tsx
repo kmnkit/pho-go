@@ -35,14 +35,11 @@ export const GestureTestCard: React.FC = () => {
   };
 
   const cardRef = useRef<HTMLDivElement>(null);
-  
+
   const {
-    cssTransform,
     bindDrag,
     isDragging,
     lastGesture,
-    gestureAccuracy,
-    totalGestures,
     resetPosition,
     getGestureStats,
     animateElement,
