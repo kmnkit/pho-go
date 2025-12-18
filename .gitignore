@@ -8,6 +8,15 @@
 
 # testing
 /coverage
+/test-results/
+/playwright-report/
+/playwright/.cache/
+lighthouse-report.html
+lighthouse-report.json
+.lighthouseci/
+
+# tmp test results - track summaries but not raw data
+tmp/test-results/results.json
 
 # next.js
 /.next/
