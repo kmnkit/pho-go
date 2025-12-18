@@ -17,6 +17,7 @@ const { execSync } = require('child_process');
 const RESULTS_FILE = 'tmp/test-results/results.json';
 const DRY_RUN = process.argv.includes('--dry-run');
 const LABEL = process.argv.find(arg => arg.startsWith('--label='))?.split('=')[1] || 'e2e-test,bug';
+const CHECK_DUPLICATES = !process.argv.includes('--no-duplicate-check');
 
 /**
  * Extract failed tests from Playwright results
@@ -125,9 +126,79 @@ _Add investigation notes here_
 }
 
 /**
+ * Check if issue already exists with the same title
+ */
+function findExistingIssue(title) {
+  if (!CHECK_DUPLICATES) {
+    return null;
+  }
+
+  try {
+    // Search for open issues with e2e-test label and matching title
+    const command = `gh issue list --label "e2e-test" --state open --json number,title --limit 100`;
+    const result = execSync(command, { encoding: 'utf8' });
+    const issues = JSON.parse(result);
+
+    const existing = issues.find(issue => issue.title === title);
+    return existing ? existing.number : null;
+  } catch (error) {
+    console.error('⚠️  Warning: Could not check for duplicates:', error.message);
+    return null;
+  }
+}
+
+/**
+ * Add comment to existing issue
+ */
+function addCommentToIssue(issueNumber, test) {
+  const comment = `## 🔄 Test Failed Again
+
+**Failed At:** ${new Date().toISOString()}
+**Status:** ${test.status === 'timedOut' ? '⏱️ Timeout' : '❌ Failed'}
+**Duration:** ${Math.round(test.duration / 1000)}s
+**Retry Attempt:** ${test.retry}
+
+### Error
+
+\`\`\`
+${test.error}
+\`\`\`
+
+---
+*Auto-generated from CI pipeline*
+`;
+
+  try {
+    execSync(`gh issue comment ${issueNumber} --body "${comment.replace(/"/g, '\\"')}"`, { encoding: 'utf8' });
+    return true;
+  } catch (error) {
+    console.error('❌ Failed to add comment:', error.message);
+    return false;
+  }
+}
+
+/**
  * Create GitHub issue using gh CLI
  */
-function createGitHubIssue(title, body, labels) {
+function createGitHubIssue(title, body, labels, test) {
+  // Check for existing issue
+  const existingIssueNumber = findExistingIssue(title);
+
+  if (existingIssueNumber) {
+    if (DRY_RUN) {
+      console.log(`  ℹ️  Would add comment to existing issue #${existingIssueNumber}`);
+      return `#${existingIssueNumber}`;
+    }
+
+    console.log(`  ℹ️  Found existing issue #${existingIssueNumber}`);
+    const commented = addCommentToIssue(existingIssueNumber, test);
+    if (commented) {
+      console.log(`  ✅ Added comment to #${existingIssueNumber}`);
+      return `#${existingIssueNumber}`;
+    }
+    return null;
+  }
+
   if (DRY_RUN) {
     console.log('\n📄 Would create issue:');
     console.log('Title:', title);
@@ -170,15 +241,21 @@ function main() {
 
   const createdIssues = [];
 
+  const updatedIssues = [];
+
   failedTests.forEach((test, index) => {
     console.log(`[${index + 1}/${failedTests.length}] Processing: ${test.title}`);
 
     const { title, body } = generateIssue(test);
-    const issueUrl = createGitHubIssue(title, body, LABEL);
+    const issueUrl = createGitHubIssue(title, body, LABEL, test);
 
     if (issueUrl) {
-      console.log(`  ✅ Created: ${issueUrl}`);
-      createdIssues.push(issueUrl);
+      if (issueUrl.startsWith('#')) {
+        updatedIssues.push(issueUrl);
+      } else {
+        console.log(`  ✅ Created: ${issueUrl}`);
+        createdIssues.push(issueUrl);
+      }
     }
   });
 
@@ -188,10 +265,18 @@ function main() {
     console.log('\nTo actually create issues, run:');
     console.log('  node scripts/create-test-issues.js\n');
   } else {
-    console.log(`\n📊 Summary: Created ${createdIssues.length} issue(s)`);
+    console.log(`\n📊 Summary:`);
+    console.log(`  - Created: ${createdIssues.length} new issue(s)`);
+    console.log(`  - Updated: ${updatedIssues.length} existing issue(s)`);
+
     if (createdIssues.length > 0) {
-      console.log('\nCreated issues:');
+      console.log('\nNew issues:');
       createdIssues.forEach(url => console.log(`  - ${url}`));
+    }
+
+    if (updatedIssues.length > 0) {
+      console.log('\nUpdated issues:');
+      updatedIssues.forEach(issue => console.log(`  - ${issue}`));
     }
   }
 }
