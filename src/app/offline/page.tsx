@@ -1,10 +1,6 @@
-import Link from 'next/link';
-import { Metadata } from 'next';
+'use client';
 
-export const metadata: Metadata = {
-  title: 'オフライン',
-  description: 'インターネット接続がありません',
-};
+import Link from 'next/link';
 
 /**
  * Offline Page
