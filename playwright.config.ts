@@ -21,6 +21,8 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'html',
+  /* Maximum time one test can run for */
+  timeout: 60 * 1000, // 60 seconds per test
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
@@ -28,35 +30,48 @@ export default defineConfig({
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
+    /* Maximum time each action such as `click()` can take */
+    actionTimeout: 30 * 1000, // 30 seconds
+    /* Maximum time for navigation */
+    navigationTimeout: 60 * 1000, // 60 seconds
   },
 
   /* Configure projects for major browsers */
-  projects: [
-    {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
-    },
+  projects: process.env.CI
+    ? [
+        // CI: Only run Chromium for faster tests
+        {
+          name: 'chromium',
+          use: { ...devices['Desktop Chrome'] },
+        },
+      ]
+    : [
+        // Local: Run all browsers
+        {
+          name: 'chromium',
+          use: { ...devices['Desktop Chrome'] },
+        },
 
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
+        {
+          name: 'firefox',
+          use: { ...devices['Desktop Firefox'] },
+        },
 
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-    },
+        {
+          name: 'webkit',
+          use: { ...devices['Desktop Safari'] },
+        },
 
-    /* Test against mobile viewports. */
-    {
-      name: 'Mobile Chrome',
-      use: { ...devices['Pixel 5'] },
-    },
-    {
-      name: 'Mobile Safari',
-      use: { ...devices['iPhone 12'] },
-    },
-  ],
+        /* Test against mobile viewports. */
+        {
+          name: 'Mobile Chrome',
+          use: { ...devices['Pixel 5'] },
+        },
+        {
+          name: 'Mobile Safari',
+          use: { ...devices['iPhone 12'] },
+        },
+      ],
 
   /* Run your local dev server before starting the tests */
   webServer: {
