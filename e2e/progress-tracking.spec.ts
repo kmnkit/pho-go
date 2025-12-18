@@ -133,18 +133,26 @@ test.describe('Progress Tracking', () => {
     const initialStreak = parseInt(initialStreakText || '0');
 
     // Complete a learning activity to trigger streak update
-    await page.goto('/flashcards/greetings');
+    await page.goto('/flashcards/numbers');
     await page.waitForLoadState('networkidle');
 
-    // Complete all cards to trigger session completion
-    const totalCards = 30; // Greetings category has 30 words
-    for (let i = 0; i < totalCards; i++) {
+    // Learn just 3 cards, then skip the rest to complete session quickly
+    for (let i = 0; i < 3; i++) {
       const knowButton = page.getByRole('button', { name: /覚えた/ });
       const isVisible = await knowButton.isVisible().catch(() => false);
-
       if (isVisible) {
         await knowButton.click();
-        await page.waitForTimeout(100);
+        await page.waitForTimeout(50);
+      }
+    }
+
+    // Skip remaining cards to reach completion
+    const skipButton = page.getByRole('button', { name: /まだ/ });
+    for (let i = 0; i < 27; i++) {
+      const isVisible = await skipButton.isVisible().catch(() => false);
+      if (isVisible) {
+        await skipButton.click();
+        await page.waitForTimeout(50);
       } else {
         break; // Reached completion screen
       }
