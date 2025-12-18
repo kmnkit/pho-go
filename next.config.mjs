@@ -4,6 +4,9 @@ const nextConfig = {
   images: {
     domains: [],
   },
+  experimental: {
+    missingSuspenseWithCSRBailout: false,
+  },
 };
 
 export default nextConfig;
