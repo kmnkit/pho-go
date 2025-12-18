@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import { onCLS, onFCP, onFID, onINP, onLCP, onTTFB } from 'web-vitals';
+import { onCLS, onFCP, onINP, onLCP, onTTFB } from 'web-vitals';
 import { reportWebVitals } from '@/lib/web-vitals';
 
 /**
@@ -9,6 +9,8 @@ import { reportWebVitals } from '@/lib/web-vitals';
  *
  * Core Web Vitals とその他のパフォーマンスメトリクスを追跡します。
  * layout.tsx に配置して全ページで使用します。
+ *
+ * Note: web-vitals v5+ では FID は非推奨となり、INP に置き換えられました。
  *
  * @example
  * ```tsx
@@ -31,13 +33,12 @@ export default function WebVitals() {
   useEffect(() => {
     // Core Web Vitals
     onCLS(reportWebVitals); // Cumulative Layout Shift
-    onFID(reportWebVitals); // First Input Delay
+    onINP(reportWebVitals); // Interaction to Next Paint (replaces FID)
     onLCP(reportWebVitals); // Largest Contentful Paint
 
     // Additional Metrics
     onFCP(reportWebVitals); // First Contentful Paint
     onTTFB(reportWebVitals); // Time to First Byte
-    onINP(reportWebVitals); // Interaction to Next Paint
   }, []);
 
   // このコンポーネントは何もレンダリングしない

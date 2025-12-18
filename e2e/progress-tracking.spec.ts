@@ -24,7 +24,7 @@ test.describe('Progress Tracking', () => {
     await page.goto('/');
 
     // Get initial XP
-    const initialXPElement = page.locator('text=/\\d+ XP/).first();
+    const initialXPElement = page.locator('text=/\\d+ XP/').first();
     const initialXPText = await initialXPElement.textContent();
     const initialXP = parseInt(initialXPText?.match(/\d+/)?.[0] || '0');
 
@@ -41,7 +41,7 @@ test.describe('Progress Tracking', () => {
     await page.goto('/');
 
     // Verify XP increased by 10
-    const newXPElement = page.locator('text=/\\d+ XP/).first();
+    const newXPElement = page.locator('text=/\\d+ XP/').first();
     const newXPText = await newXPElement.textContent();
     const newXP = parseInt(newXPText?.match(/\d+/)?.[0] || '0');
 
@@ -52,7 +52,7 @@ test.describe('Progress Tracking', () => {
     await page.goto('/');
 
     // Get initial learned words count
-    const initialCountElement = page.locator('text=/習得単語数/).locator('..').locator('text=/\\d+/').first();
+    const initialCountElement = page.locator('text=/習得単語数/').locator('..').locator('text=/\\d+/').first();
     const initialCountText = await initialCountElement.textContent();
     const initialCount = parseInt(initialCountText || '0');
 
@@ -68,7 +68,7 @@ test.describe('Progress Tracking', () => {
     await page.goto('/');
 
     // Verify learned words increased by 1
-    const newCountElement = page.locator('text=/習得単語数/).locator('..').locator('text=/\\d+/').first();
+    const newCountElement = page.locator('text=/習得単語数/').locator('..').locator('text=/\\d+/').first();
     const newCountText = await newCountElement.textContent();
     const newCount = parseInt(newCountText || '0');
 
@@ -128,7 +128,7 @@ test.describe('Progress Tracking', () => {
     await page.goto('/progress');
 
     // Get initial streak
-    const streakElement = page.locator('text=/連続学習日数/).locator('..').locator('.text-3xl').first();
+    const streakElement = page.locator('text=/連続学習日数/').locator('..').locator('.text-3xl').first();
     const initialStreakText = await streakElement.textContent();
     const initialStreak = parseInt(initialStreakText || '0');
 
@@ -157,7 +157,7 @@ test.describe('Progress Tracking', () => {
     await page.goto('/progress');
 
     // Verify streak is at least 1
-    const newStreakElement = page.locator('text=/連続学習日数/).locator('..').locator('.text-3xl').first();
+    const newStreakElement = page.locator('text=/連続学習日数/').locator('..').locator('.text-3xl').first();
     const newStreakText = await newStreakElement.textContent();
     const newStreak = parseInt(newStreakText || '0');
 

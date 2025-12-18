@@ -195,7 +195,7 @@ test.describe('Navigation', () => {
     await page.goto('/');
 
     // Get XP value
-    const xpElement = page.locator('text=/\\d+ XP/).first();
+    const xpElement = page.locator('text=/\\d+ XP/').first();
     const xpText = await xpElement.textContent();
     const xp = parseInt(xpText?.match(/\d+/)?.[0] || '0');
 
@@ -203,7 +203,7 @@ test.describe('Navigation', () => {
     await page.goto('/progress');
 
     // Verify same XP is shown
-    const progressXpElement = page.locator('text=/総経験値/).locator('..').locator('.text-3xl').first();
+    const progressXpElement = page.locator('text=/総経験値/').locator('..').locator('.text-3xl').first();
     const progressXpText = await progressXpElement.textContent();
     const progressXp = parseInt(progressXpText || '0');
 
