@@ -6,6 +6,20 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Việt Pocket is a Next.js 14 web application for Japanese business professionals learning Vietnamese. It features gamification elements, progress tracking, and multiple learning modes (flashcards, quizzes, alphabet/tone learning).
 
+## Initial Setup
+
+**First time setup?** See [SETUP.md](./SETUP.md) for detailed instructions on:
+- Environment variables configuration
+- Google OAuth setup (optional)
+- Database setup (optional)
+- GitHub Actions secrets
+- Vercel deployment
+
+**Quick Start (Minimum Setup)**:
+1. Copy `.env.local.example` to `.env.local`
+2. Generate `NEXTAUTH_SECRET`: `node -e "console.log(require('crypto').randomBytes(32).toString('base64'))"`
+3. Run `npm install && npm run dev`
+
 ## Essential Commands
 
 ### Development

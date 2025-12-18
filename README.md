@@ -38,11 +38,19 @@ cd pho-go
 # 依存関係をインストール
 npm install
 
+# 環境変数を設定
+cp .env.local.example .env.local
+# .env.local を編集してNEXTAUTH_SECRETを設定
+node -e "console.log(require('crypto').randomBytes(32).toString('base64'))"
+# 👆 この出力をNEXTAUTH_SECRETとして使用
+
 # 開発サーバーを起動
 npm run dev
 ```
 
 ブラウザで [http://localhost:3000](http://localhost:3000) を開いて確認できます。
+
+> **📖 詳細なセットアップガイド**: Google OAuth、データベース設定、デプロイ方法などの詳細は [SETUP.md](./SETUP.md) を参照してください。
 
 ## 📦 スクリプト
 
