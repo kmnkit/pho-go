@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Vietnamese Word Cards is a Next.js 14 web application for Japanese business professionals learning Vietnamese. It features gamification elements, progress tracking, and multiple learning modes (flashcards, quizzes, alphabet/tone learning).
+Việt Pocket is a Next.js 14 web application for Japanese business professionals learning Vietnamese. It features gamification elements, progress tracking, and multiple learning modes (flashcards, quizzes, alphabet/tone learning).
 
 ## Essential Commands
 

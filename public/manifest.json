@@ -1,7 +1,7 @@
 {
-  "name": "Vietnamese Word Cards",
-  "short_name": "VietnameseCards",
-  "description": "Vietnamese learning app for Japanese business professionals",
+  "name": "Việt Pocket",
+  "short_name": "ViệtPocket",
+  "description": "Việt Pocket - Vietnamese learning app for Japanese business professionals",
   "theme_color": "#dc2626",
   "background_color": "#ffffff",
   "display": "standalone",

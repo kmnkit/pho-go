@@ -1,4 +1,4 @@
-# 🇻🇳 ベトナム語学習アプリ
+# 🇻🇳 Việt Pocket
 
 日本のビジネスパーソン向けのベトナム語学習Webアプリケーションです。ゲーミフィケーション要素を取り入れ、楽しくベトナム語の基礎を習得できます。
 
@@ -32,8 +32,8 @@
 
 ```bash
 # リポジトリをクローン
-git clone https://github.com/yourusername/vietnamese-word-cards.git
-cd vietnamese-word-cards
+git clone https://github.com/kmnkit/pho-go.git
+cd pho-go
 
 # 依存関係をインストール
 npm install
@@ -97,7 +97,7 @@ npm run test:e2e:ui
 ## 📁 プロジェクト構造
 
 ```
-vietnamese-word-cards/
+pho-go/
 ├── src/
 │   ├── app/                  # Next.js App Router ページ
 │   │   ├── flashcards/      # フラッシュカード機能
@@ -118,7 +118,7 @@ vietnamese-word-cards/
 
 このアプリケーションは Vercel にデプロイされています。
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/yourusername/vietnamese-word-cards)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/kmnkit/pho-go)
 
 ### デプロイ手順
 

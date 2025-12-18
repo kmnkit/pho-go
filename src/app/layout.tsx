@@ -11,8 +11,8 @@ import KeyboardShortcuts from '@/components/KeyboardShortcuts';
 
 export const metadata: Metadata = {
   title: {
-    default: 'ベトナム語学習アプリ - Vietnamese Word Cards',
-    template: '%s | Vietnamese Word Cards',
+    default: 'ベトナム語学習アプリ - Việt Pocket',
+    template: '%s | Việt Pocket',
   },
   description:
     '日本のビジネスパーソン向けベトナム語学習アプリ。ゲーミフィケーション要素を取り入れ、楽しくベトナム語の基礎を習得。フラッシュカード、クイズ、進捗管理機能を搭載。',
@@ -26,20 +26,20 @@ export const metadata: Metadata = {
     'Vietnamese',
     'Language Learning',
   ],
-  authors: [{ name: 'Vietnamese Word Cards' }],
-  creator: 'Vietnamese Word Cards',
+  authors: [{ name: 'Việt Pocket' }],
+  creator: 'Việt Pocket',
   openGraph: {
     type: 'website',
     locale: 'ja_JP',
     url: 'https://vietnamese-word-cards.vercel.app',
-    title: 'ベトナム語学習アプリ - Vietnamese Word Cards',
+    title: 'ベトナム語学習アプリ - Việt Pocket',
     description:
       '日本のビジネスパーソン向けベトナム語学習アプリ。楽しくベトナム語の基礎を習得。',
-    siteName: 'Vietnamese Word Cards',
+    siteName: 'Việt Pocket',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ベトナム語学習アプリ - Vietnamese Word Cards',
+    title: 'ベトナム語学習アプリ - Việt Pocket',
     description:
       '日本のビジネスパーソン向けベトナム語学習アプリ。楽しくベトナム語の基礎を習得。',
   },

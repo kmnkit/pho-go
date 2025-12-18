@@ -7,7 +7,7 @@ test.describe('Flashcard Learning Flow', () => {
     await page.waitForLoadState('networkidle');
 
     // Verify home page loaded with correct content
-    await expect(page.getByText('ようこそ！Vietnamese Word Cards へ')).toBeVisible();
+    await expect(page.getByText('ようこそ！Việt Pocket へ')).toBeVisible();
 
     // Click on flashcards link
     await page.getByRole('link', { name: '単語カード' }).first().click();

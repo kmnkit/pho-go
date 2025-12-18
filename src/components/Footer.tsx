@@ -10,7 +10,7 @@ export default function Footer() {
           {/* About */}
           <div>
             <h3 className="text-sm font-semibold text-gray-900 mb-3">
-              Vietnamese Word Cards について
+              Việt Pocket について
             </h3>
             <p className="text-sm text-gray-600">
               初心者向けのベトナム語学習アプリ。楽しく単語やフレーズを習得しましょう。
@@ -89,7 +89,7 @@ export default function Footer() {
 
         <div className="mt-8 pt-8 border-t border-gray-200">
           <p className="text-center text-sm text-gray-500">
-            &copy; {currentYear} Vietnamese Word Cards. All rights reserved.
+            &copy; {currentYear} Việt Pocket. All rights reserved.
           </p>
         </div>
       </div>

@@ -6,8 +6,8 @@ test.describe('Navigation', () => {
     await page.waitForLoadState('networkidle');
 
     // Verify home page loaded
-    await expect(page).toHaveTitle(/Vietnamese Word Cards/);
-    await expect(page.getByText('ようこそ！Vietnamese Word Cards へ')).toBeVisible();
+    await expect(page).toHaveTitle(/Việt Pocket/);
+    await expect(page.getByText('ようこそ！Việt Pocket へ')).toBeVisible();
 
     // Navigate to alphabet learning
     await page.getByRole('link', { name: 'アルファベット' }).first().click();

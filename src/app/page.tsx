@@ -19,7 +19,7 @@ export default function Home() {
       {/* Welcome Section */}
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-gray-900 mb-2">
-          ようこそ！Vietnamese Word Cards へ
+          ようこそ！Việt Pocket へ
         </h1>
         <p className="text-gray-600">今日も楽しくベトナム語を学びましょう</p>
       </div>
