@@ -33,7 +33,8 @@ export default function JaToViQuizPage() {
   const [wrongAnswers, setWrongAnswers] = useState<QuizQuestion[]>([]);
   const [quizComplete, setQuizComplete] = useState(false);
 
-  const { addExperiencePoints } = useUserProgressStore();
+  const { addExperiencePoints, updateStreak, addStudySession } =
+    useUserProgressStore();
 
   // Load words and generate questions
   useEffect(() => {
@@ -87,6 +88,22 @@ export default function JaToViQuizPage() {
 
     loadQuestions();
   }, [categoryParam, router]);
+
+  // Update streak and add study session on quiz completion
+  useEffect(() => {
+    if (quizComplete && questions.length > 0) {
+      updateStreak();
+      addStudySession({
+        date: new Date().toISOString(),
+        duration_minutes: Math.ceil(questions.length * 0.5), // Estimate: 30 sec per question
+        words_practiced: questions.length,
+        quiz_score: score,
+        activity_type: 'quiz',
+        xp_earned: score * 5,
+        words_learned: score,
+      });
+    }
+  }, [quizComplete, score, questions.length, updateStreak, addStudySession]);
 
   const currentQuestion = questions[currentIndex];
 

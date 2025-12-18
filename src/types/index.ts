@@ -52,6 +52,9 @@ export interface StudySession {
   duration_minutes: number;
   words_practiced: number;
   quiz_score?: number;
+  activity_type?: 'flashcard' | 'quiz' | 'learning';
+  xp_earned?: number;
+  words_learned?: number;
 }
 
 // ユーザー学習データ型

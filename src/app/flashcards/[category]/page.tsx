@@ -32,7 +32,7 @@ export default function FlashcardCategoryPage() {
   const [sessionSkipped, setSessionSkipped] = useState<string[]>([]);
   const [showCompletion, setShowCompletion] = useState(false);
 
-  const { addLearnedWord, addExperiencePoints, learned_words } =
+  const { addLearnedWord, addExperiencePoints, updateStreak, addStudySession } =
     useUserProgressStore();
 
   const category = categoriesData.find((c) => c.id === categoryId);
@@ -57,6 +57,21 @@ export default function FlashcardCategoryPage() {
       loadWords();
     }
   }, [categoryId, router]);
+
+  // Update streak and add study session on completion
+  useEffect(() => {
+    if (showCompletion && sessionLearned.length > 0) {
+      updateStreak();
+      addStudySession({
+        date: new Date().toISOString(),
+        duration_minutes: Math.ceil(sessionLearned.length * 0.5), // Estimate: 30 sec per card
+        words_practiced: words.length,
+        activity_type: 'flashcard',
+        xp_earned: sessionLearned.length * 10,
+        words_learned: sessionLearned.length,
+      });
+    }
+  }, [showCompletion, sessionLearned, updateStreak, addStudySession, words.length]);
 
   const handleFlip = () => {
     setIsFlipped(!isFlipped);
