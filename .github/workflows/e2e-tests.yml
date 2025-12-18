@@ -30,6 +30,18 @@ jobs:
       - name: Run Playwright tests
         run: npm run test:e2e
 
+      - name: Generate test summary
+        if: always()
+        run: npm run test:e2e:summary
+
+      - name: Upload test summary
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-summary
+          path: tmp/test-results/summary.md
+          retention-days: 90
+
       - name: Upload test results
         uses: actions/upload-artifact@v4
         if: always()

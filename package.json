@@ -13,6 +13,8 @@
     "test:e2e:headed": "playwright test --headed",
     "test:e2e:debug": "playwright test --debug",
     "test:e2e:report": "playwright show-report",
+    "test:e2e:summary": "node scripts/generate-test-summary.js",
+    "test:e2e:full": "npm run test:e2e; npm run test:e2e:summary",
     "lighthouse": "lighthouse http://localhost:3000 --view --output=html --output-path=./lighthouse-report.html",
     "lighthouse:ci": "lighthouse http://localhost:3000 --output=json --output-path=./lighthouse-report.json --chrome-flags='--headless'"
   },
