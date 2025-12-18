@@ -26,7 +26,7 @@ const nextConfig = {
 
   experimental: {
     missingSuspenseWithCSRBailout: false,
-    optimizeCss: true,
+    // optimizeCss: true, // Requires 'critters' package - disabled for now
     optimizePackageImports: ['zustand', 'howler'],
   },
 
