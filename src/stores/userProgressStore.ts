@@ -1,6 +1,21 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import type { UserProgress, StudySession } from '@/types';
+import type { 
+  UserProgress, 
+  StudySession, 
+  EnhancedUserProgress,
+  EnhancedStudySession,
+  WordLearningMetrics,
+  CategoryAnalytics,
+  LearningDataPoint,
+  LearningStyle,
+  SpacedRepetitionData,
+  Achievement,
+  PersonalizationSettings,
+  MetricType,
+  CategoryId,
+  DifficultyLevel
+} from '@/types';
 
 /**
  * Actions available on the user progress store
@@ -28,6 +43,39 @@ interface UserProgressActions {
   readonly syncWithBackend: () => Promise<void>;
   /** Set sync status */
   readonly setSyncStatus: (status: SyncStatus) => void;
+  
+  // ============================================================================
+  // Enhanced Analytics Actions
+  // ============================================================================
+  
+  /** Record word interaction with detailed metrics */
+  readonly recordWordInteraction: (wordId: string, correct: boolean, responseTime: number) => void;
+  /** Update word learning metrics */
+  readonly updateWordMetrics: (wordId: string, metrics: Partial<WordLearningMetrics>) => void;
+  /** Get word learning metrics */
+  readonly getWordMetrics: (wordId: string) => WordLearningMetrics | undefined;
+  /** Record learning data point for analytics */
+  readonly recordLearningData: (metricType: MetricType, value: number, metadata?: Record<string, unknown>) => void;
+  /** Get category analytics */
+  readonly getCategoryAnalytics: (categoryId: CategoryId) => CategoryAnalytics | undefined;
+  /** Update category performance */
+  readonly updateCategoryAnalytics: (categoryId: CategoryId, analytics: Partial<CategoryAnalytics>) => void;
+  /** Detect and update learning style */
+  readonly updateLearningStyle: (style: LearningStyle) => void;
+  /** Update spaced repetition data */
+  readonly updateSpacedRepetition: (wordId: string, data: SpacedRepetitionData) => void;
+  /** Check achievement progress */
+  readonly checkAchievements: () => void;
+  /** Unlock achievement */
+  readonly unlockAchievement: (achievementId: string) => void;
+  /** Update personalization settings */
+  readonly updatePersonalization: (settings: Partial<PersonalizationSettings>) => void;
+  /** Get recommended words for review */
+  readonly getRecommendedWords: () => string[];
+  /** Calculate forgetting curve retention */
+  readonly calculateRetention: (wordId: string) => number;
+  /** Get learning pattern insights */
+  readonly getLearningInsights: () => LearningInsights;
 }
 
 /**
@@ -36,12 +84,41 @@ interface UserProgressActions {
 type SyncStatus = 'idle' | 'syncing' | 'error' | 'offline';
 
 /**
+ * Learning insights for user feedback
+ */
+interface LearningInsights {
+  readonly strongCategories: CategoryId[];
+  readonly weakCategories: CategoryId[];
+  readonly optimalStudyTime: string;
+  readonly recommendedSessionLength: number;
+  readonly learningTrends: LearningTrend[];
+  readonly nextMilestone: string;
+}
+
+/**
+ * Learning trend data
+ */
+interface LearningTrend {
+  readonly metric: MetricType;
+  readonly trend: 'improving' | 'declining' | 'stable';
+  readonly changePercentage: number;
+  readonly period: 'week' | 'month';
+}
+
+/**
  * Complete user progress store state including actions
  */
-interface UserProgressState extends UserProgress {
+interface UserProgressState extends EnhancedUserProgress {
   // Make state properties mutable for Zustand
   learned_words: string[];
   study_sessions: StudySession[];
+  word_metrics: WordLearningMetrics[];
+  category_analytics: CategoryAnalytics[];
+  learning_data: LearningDataPoint[];
+  learning_style?: LearningStyle;
+  spaced_repetition: SpacedRepetitionData[];
+  achievements: Achievement[];
+  personalization: PersonalizationSettings;
   // Sync status
   syncStatus: SyncStatus;
   lastSyncTime: string;
@@ -78,10 +155,49 @@ const POINTS_PER_LEVEL = 100 as const;
 /** Maximum study sessions to keep in memory for performance */
 const MAX_STUDY_SESSIONS = 1000 as const;
 
+/** Maximum learning data points to keep for analytics */
+const MAX_LEARNING_DATA_POINTS = 10000 as const;
+
+/** Forgetting curve constants */
+const FORGETTING_CURVE = {
+  INITIAL_STRENGTH: 1.0,
+  DECAY_RATE: 0.1,
+  MINIMUM_RETENTION: 0.1,
+} as const;
+
+/** Spaced repetition algorithm constants */
+const SPACED_REPETITION = {
+  INITIAL_INTERVAL: 1, // days
+  EASE_FACTOR: 2.5,
+  MINIMUM_EASE: 1.3,
+  MAXIMUM_EASE: 4.0,
+  QUALITY_THRESHOLD: 3,
+} as const;
+
+/** Default personalization settings */
+const defaultPersonalizationSettings: PersonalizationSettings = {
+  preferred_difficulty: 'beginner',
+  preferred_session_length: 15,
+  daily_study_goal: 30,
+  reminder_enabled: false,
+  adaptive_features_enabled: true,
+  theme_preferences: {
+    color_scheme: 'auto',
+    font_size: 'medium',
+    animations_enabled: true,
+    sounds_enabled: true,
+  },
+} as const;
+
 /** Default user progress data with proper typing */
-const defaultUserProgress: Omit<UserProgress, 'learned_words' | 'study_sessions'> & {
+const defaultUserProgress: Omit<EnhancedUserProgress, 'learned_words' | 'study_sessions' | 'word_metrics' | 'category_analytics' | 'learning_data' | 'spaced_repetition' | 'achievements'> & {
   learned_words: string[];
   study_sessions: StudySession[];
+  word_metrics: WordLearningMetrics[];
+  category_analytics: CategoryAnalytics[];
+  learning_data: LearningDataPoint[];
+  spaced_repetition: SpacedRepetitionData[];
+  achievements: Achievement[];
   syncStatus: SyncStatus;
   lastSyncTime: string;
 } = {
@@ -92,6 +208,12 @@ const defaultUserProgress: Omit<UserProgress, 'learned_words' | 'study_sessions'
   streak_days: 0,
   last_study_date: '',
   study_sessions: [],
+  word_metrics: [],
+  category_analytics: [],
+  learning_data: [],
+  spaced_repetition: [],
+  achievements: [],
+  personalization: defaultPersonalizationSettings,
   syncStatus: 'idle',
   lastSyncTime: '',
 } as const;
@@ -265,6 +387,19 @@ export const useUserProgressStore = create<UserProgressState>()(
             study_sessions: limitedSessions,
           });
 
+          // Record analytics data from session
+          get().actions.recordLearningData('session_duration', session.duration_minutes, {
+            activity_type: session.activity_type,
+            words_practiced: session.words_practiced,
+            xp_earned: session.xp_earned,
+          });
+
+          if (session.quiz_score !== undefined) {
+            get().actions.recordLearningData('accuracy_rate', session.quiz_score / 100, {
+              activity_type: session.activity_type,
+            });
+          }
+
           // Sync with backend if online
           const { syncStatus } = get();
           if (syncStatus !== 'offline') {
@@ -397,6 +532,251 @@ export const useUserProgressStore = create<UserProgressState>()(
         setSyncStatus: (status: SyncStatus): void => {
           set({ syncStatus: status });
         },
+
+        // ============================================================================
+        // Enhanced Analytics Actions Implementation
+        // ============================================================================
+
+        // Record word interaction with detailed metrics
+        recordWordInteraction: (wordId: string, correct: boolean, responseTime: number): void => {
+          const state = get();
+          const existingMetrics = state.word_metrics.find(m => m.word_id === wordId);
+          const now = new Date().toISOString();
+          
+          if (existingMetrics) {
+            const updatedMetrics: WordLearningMetrics = {
+              ...existingMetrics,
+              encounter_count: existingMetrics.encounter_count + 1,
+              correct_count: existingMetrics.correct_count + (correct ? 1 : 0),
+              incorrect_count: existingMetrics.incorrect_count + (correct ? 0 : 1),
+              avg_response_time: (existingMetrics.avg_response_time * existingMetrics.encounter_count + responseTime) / (existingMetrics.encounter_count + 1),
+              last_seen: now,
+              confidence_score: Math.min(1, (existingMetrics.correct_count + (correct ? 1 : 0)) / (existingMetrics.encounter_count + 1)),
+            };
+            
+            set({
+              word_metrics: state.word_metrics.map(m => m.word_id === wordId ? updatedMetrics : m)
+            });
+          } else {
+            const newMetrics: WordLearningMetrics = {
+              word_id: wordId,
+              encounter_count: 1,
+              correct_count: correct ? 1 : 0,
+              incorrect_count: correct ? 0 : 1,
+              avg_response_time: responseTime,
+              first_seen: now,
+              last_seen: now,
+              confidence_score: correct ? 1 : 0,
+              retention_estimate: 1,
+              next_review_date: new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString(),
+            };
+            
+            set({
+              word_metrics: [...state.word_metrics, newMetrics]
+            });
+          }
+          
+          // Record learning data point
+          get().actions.recordLearningData('accuracy_rate', correct ? 1 : 0, { word_id: wordId });
+          get().actions.recordLearningData('response_time', responseTime, { word_id: wordId });
+        },
+
+        // Update word learning metrics
+        updateWordMetrics: (wordId: string, metrics: Partial<WordLearningMetrics>): void => {
+          set({
+            word_metrics: get().word_metrics.map(m => 
+              m.word_id === wordId ? { ...m, ...metrics } : m
+            )
+          });
+        },
+
+        // Get word learning metrics
+        getWordMetrics: (wordId: string): WordLearningMetrics | undefined => {
+          return get().word_metrics.find(m => m.word_id === wordId);
+        },
+
+        // Record learning data point for analytics
+        recordLearningData: (metricType: MetricType, value: number, metadata?: Record<string, unknown>): void => {
+          const state = get();
+          const dataPoint: LearningDataPoint = {
+            timestamp: new Date().toISOString(),
+            metric_type: metricType,
+            value,
+            metadata,
+          };
+          
+          const updatedData = [...state.learning_data, dataPoint];
+          
+          // Keep only the most recent data points for performance
+          const limitedData = updatedData.slice(-MAX_LEARNING_DATA_POINTS);
+          
+          set({ learning_data: limitedData });
+        },
+
+        // Get category analytics
+        getCategoryAnalytics: (categoryId: CategoryId): CategoryAnalytics | undefined => {
+          return get().category_analytics.find(c => c.category_id === categoryId);
+        },
+
+        // Update category performance
+        updateCategoryAnalytics: (categoryId: CategoryId, analytics: Partial<CategoryAnalytics>): void => {
+          const state = get();
+          const existingAnalytics = state.category_analytics.find(c => c.category_id === categoryId);
+          
+          if (existingAnalytics) {
+            set({
+              category_analytics: state.category_analytics.map(c => 
+                c.category_id === categoryId ? { ...c, ...analytics } : c
+              )
+            });
+          } else {
+            const newAnalytics: CategoryAnalytics = {
+              category_id: categoryId,
+              total_words: 0,
+              words_learned: 0,
+              words_in_progress: 0,
+              average_accuracy: 0,
+              time_spent_minutes: 0,
+              preferred_mode: 'flashcard',
+              last_activity: new Date().toISOString(),
+              ...analytics,
+            };
+            
+            set({
+              category_analytics: [...state.category_analytics, newAnalytics]
+            });
+          }
+        },
+
+        // Detect and update learning style
+        updateLearningStyle: (style: LearningStyle): void => {
+          set({ learning_style: style });
+        },
+
+        // Update spaced repetition data
+        updateSpacedRepetition: (wordId: string, data: SpacedRepetitionData): void => {
+          const state = get();
+          const existingData = state.spaced_repetition.find(s => s.word_id === wordId);
+          
+          if (existingData) {
+            set({
+              spaced_repetition: state.spaced_repetition.map(s => 
+                s.word_id === wordId ? data : s
+              )
+            });
+          } else {
+            set({
+              spaced_repetition: [...state.spaced_repetition, data]
+            });
+          }
+        },
+
+        // Check achievement progress
+        checkAchievements: (): void => {
+          // This will be implemented with achievement system
+          // For now, just placeholder
+        },
+
+        // Unlock achievement
+        unlockAchievement: (achievementId: string): void => {
+          const state = get();
+          const achievement = state.achievements.find(a => a.id === achievementId);
+          
+          if (achievement && !achievement.unlocked) {
+            const unlockedAchievement: Achievement = {
+              ...achievement,
+              unlocked: true,
+              unlock_date: new Date().toISOString(),
+              progress: 1,
+            };
+            
+            set({
+              achievements: state.achievements.map(a => 
+                a.id === achievementId ? unlockedAchievement : a
+              )
+            });
+            
+            // Award XP
+            get().actions.addExperiencePoints(achievement.xp_reward);
+          }
+        },
+
+        // Update personalization settings
+        updatePersonalization: (settings: Partial<PersonalizationSettings>): void => {
+          set({
+            personalization: {
+              ...get().personalization,
+              ...settings,
+            }
+          });
+        },
+
+        // Get recommended words for review
+        getRecommendedWords: (): string[] => {
+          const state = get();
+          const now = new Date();
+          
+          // Get words that need review based on spaced repetition
+          const wordsForReview = state.spaced_repetition
+            .filter(s => new Date(s.next_review) <= now)
+            .sort((a, b) => new Date(a.next_review).getTime() - new Date(b.next_review).getTime())
+            .slice(0, 20) // Limit to 20 words
+            .map(s => s.word_id);
+          
+          return wordsForReview;
+        },
+
+        // Calculate forgetting curve retention
+        calculateRetention: (wordId: string): number => {
+          const metrics = get().actions.getWordMetrics(wordId);
+          if (!metrics) return FORGETTING_CURVE.MINIMUM_RETENTION;
+          
+          const daysSinceLastSeen = (Date.now() - new Date(metrics.last_seen).getTime()) / (1000 * 60 * 60 * 24);
+          const retention = FORGETTING_CURVE.INITIAL_STRENGTH * Math.exp(-FORGETTING_CURVE.DECAY_RATE * daysSinceLastSeen);
+          
+          return Math.max(retention, FORGETTING_CURVE.MINIMUM_RETENTION);
+        },
+
+        // Get learning pattern insights
+        getLearningInsights: (): LearningInsights => {
+          const state = get();
+          
+          // Calculate strong/weak categories based on analytics
+          const categoryPerformance = state.category_analytics
+            .map(c => ({ category: c.category_id, accuracy: c.average_accuracy }))
+            .sort((a, b) => b.accuracy - a.accuracy);
+          
+          const strongCategories = categoryPerformance.slice(0, 2).map(c => c.category);
+          const weakCategories = categoryPerformance.slice(-2).map(c => c.category);
+          
+          // Analyze optimal study time from session data
+          const sessionsByHour = state.study_sessions.reduce((acc, session) => {
+            const hour = new Date(session.date).getHours();
+            if (!acc[hour]) acc[hour] = [];
+            acc[hour].push(session.quiz_score || 0);
+            return acc;
+          }, {} as Record<number, number[]>);
+          
+          let optimalHour = 14; // Default to 2 PM
+          let bestAverage = 0;
+          
+          Object.entries(sessionsByHour).forEach(([hour, scores]) => {
+            const average = scores.reduce((sum, score) => sum + score, 0) / scores.length;
+            if (average > bestAverage) {
+              bestAverage = average;
+              optimalHour = parseInt(hour);
+            }
+          });
+          
+          return {
+            strongCategories,
+            weakCategories,
+            optimalStudyTime: `${optimalHour}:00`,
+            recommendedSessionLength: state.personalization.preferred_session_length,
+            learningTrends: [],
+            nextMilestone: `Level ${state.current_level + 1}`,
+          };
+        },
       },
     }),
     {
@@ -410,6 +790,13 @@ export const useUserProgressStore = create<UserProgressState>()(
         streak_days: state.streak_days,
         last_study_date: state.last_study_date,
         study_sessions: state.study_sessions,
+        word_metrics: state.word_metrics,
+        category_analytics: state.category_analytics,
+        learning_data: state.learning_data,
+        learning_style: state.learning_style,
+        spaced_repetition: state.spaced_repetition,
+        achievements: state.achievements,
+        personalization: state.personalization,
         syncStatus: state.syncStatus,
         lastSyncTime: state.lastSyncTime,
       }),
