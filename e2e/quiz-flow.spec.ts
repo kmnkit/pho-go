@@ -30,10 +30,10 @@ test.describe('Quiz Flow', () => {
     // Verify Japanese question is shown
     await expect(page.locator('.text-4xl.font-bold')).toBeVisible({ timeout: 5000 });
 
-    // Select an answer (click the first choice)
-    const firstChoice = page.locator('button').filter({ hasText: /^[^✓✗]+$/ }).first();
-    await expect(firstChoice).toBeVisible({ timeout: 5000 });
-    await firstChoice.click();
+    // Select an answer (click the first choice that is not a menu button)
+    const firstChoice = page.locator('button').filter({ hasText: /^[^✓✗]+$/ }).and(page.locator(':not([aria-label*="メニュー"])'));
+    await expect(firstChoice.first()).toBeVisible({ timeout: 5000 });
+    await firstChoice.first().click();
 
     // Verify feedback is shown
     await page.waitForTimeout(500);
@@ -58,8 +58,8 @@ test.describe('Quiz Flow', () => {
       // Wait for question to load
       await page.waitForTimeout(500);
 
-      // Get all choice buttons (excluding those with checkmarks or x marks)
-      const choices = page.locator('button').filter({ hasText: /^(?!.*[✓✗])/ });
+      // Get all choice buttons (excluding those with checkmarks or x marks and menu buttons)
+      const choices = page.locator('button').filter({ hasText: /^(?!.*[✓✗])/ }).and(page.locator(':not([aria-label*="メニュー"])'));
       const firstChoice = choices.first();
 
       // Check if choice button exists (might be on completion screen)
@@ -99,7 +99,7 @@ test.describe('Quiz Flow', () => {
     while (answeredQuestions < 10) {
       await page.waitForTimeout(500);
 
-      const choices = page.locator('button').filter({ hasText: /^(?!.*[✓✗])/ });
+      const choices = page.locator('button').filter({ hasText: /^(?!.*[✓✗])/ }).and(page.locator(':not([aria-label*="メニュー"])'));
       const choiceCount = await choices.count();
 
       if (choiceCount > 0) {
@@ -181,9 +181,9 @@ test.describe('Quiz Flow', () => {
     await expect(page.getByRole('button', { name: /もう一度聞く/ })).toBeVisible({ timeout: 10000 });
 
     // Answer should trigger feedback
-    const firstChoice = page.locator('button').filter({ hasText: /^(?!.*[✓✗])/ }).first();
-    await expect(firstChoice).toBeVisible({ timeout: 5000 });
-    await firstChoice.click();
+    const firstChoice = page.locator('button').filter({ hasText: /^(?!.*[✓✗])/ }).and(page.locator(':not([aria-label*="メニュー"])'));
+    await expect(firstChoice.first()).toBeVisible({ timeout: 5000 });
+    await firstChoice.first().click();
 
     await page.waitForTimeout(500);
 

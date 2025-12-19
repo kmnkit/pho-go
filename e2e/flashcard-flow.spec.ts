@@ -24,7 +24,7 @@ test.describe('Flashcard Learning Flow', () => {
 
     // Verify flashcard page loaded
     await expect(page).toHaveURL(/\/flashcards\/greetings/);
-    await expect(page.locator('text=ベトナム語')).toBeVisible({ timeout: 10000 });
+    await expect(page.getByText('ベトナム語').first()).toBeVisible({ timeout: 10000 });
 
     // Click the card to flip it
     const flashcard = page.locator('.cursor-pointer').first();
@@ -68,7 +68,7 @@ test.describe('Flashcard Learning Flow', () => {
     await page.waitForLoadState('networkidle');
 
     // Verify flashcard page loaded properly
-    await expect(page.locator('text=ベトナム語')).toBeVisible({ timeout: 10000 });
+    await expect(page.getByText('ベトナム語').first()).toBeVisible({ timeout: 10000 });
 
     // Learn 3 cards to test the flow (faster than all 30)
     const cardsToLearn = 3;
@@ -109,7 +109,7 @@ test.describe('Flashcard Learning Flow', () => {
     await page.waitForLoadState('networkidle');
 
     // Verify flashcard page loaded
-    await expect(page.locator('text=ベトナム語')).toBeVisible({ timeout: 10000 });
+    await expect(page.getByText('ベトナム語').first()).toBeVisible({ timeout: 10000 });
 
     // Get initial progress text
     const progressElement = page.locator('text=/\d+ \/ \d+/').first();
@@ -127,6 +127,6 @@ test.describe('Flashcard Learning Flow', () => {
     expect(updatedProgress).not.toBe(initialProgress);
 
     // Verify we're still in learning mode (not on completion screen)
-    await expect(page.locator('text=ベトナム語')).toBeVisible();
+    await expect(page.getByText('ベトナム語').first()).toBeVisible();
   });
 });

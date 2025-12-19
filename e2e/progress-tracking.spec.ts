@@ -15,9 +15,9 @@ test.describe('Progress Tracking', () => {
     await page.waitForLoadState('networkidle');
 
     // Verify home page stats are displayed
-    await expect(page.getByText('連続学習日数')).toBeVisible({ timeout: 10000 });
-    await expect(page.getByText('現在のレベル')).toBeVisible({ timeout: 10000 });
-    await expect(page.getByText('習得単語数')).toBeVisible({ timeout: 10000 });
+    await expect(page.getByText('連続学習日数').first()).toBeVisible({ timeout: 10000 });
+    await expect(page.getByText('現在のレベル').first()).toBeVisible({ timeout: 10000 });
+    await expect(page.getByText('習得単語数').or(page.getByText('習得済み単語')).first()).toBeVisible({ timeout: 10000 });
 
     // Initial values should be 0 or 1
     await expect(page.locator('text=/Lv\\.\\d+/')).toBeVisible({ timeout: 10000 });
@@ -61,7 +61,7 @@ test.describe('Progress Tracking', () => {
     await page.waitForLoadState('networkidle');
 
     // Get initial learned words count
-    const initialCountContainer = page.locator('text=/習得単語数/').locator('..');
+    const initialCountContainer = page.getByText('習得単語数').or(page.getByText('習得済み単語')).first().locator('..');
     const initialCountElement = initialCountContainer.locator('text=/\\d+/').first();
     await expect(initialCountElement).toBeVisible({ timeout: 10000 });
     const initialCountText = await initialCountElement.textContent();
@@ -81,7 +81,7 @@ test.describe('Progress Tracking', () => {
     await page.waitForLoadState('networkidle');
 
     // Verify learned words increased by 1
-    const newCountContainer = page.locator('text=/習得単語数/').locator('..');
+    const newCountContainer = page.getByText('習得単語数').or(page.getByText('習得済み単語')).first().locator('..');
     const newCountElement = newCountContainer.locator('text=/\\d+/').first();
     await expect(newCountElement).toBeVisible({ timeout: 10000 });
     const newCountText = await newCountElement.textContent();
@@ -101,10 +101,10 @@ test.describe('Progress Tracking', () => {
     await expect(page.getByText('連続学習日数')).toBeVisible({ timeout: 10000 });
 
     // Verify sections
-    await expect(page.getByText('レベル進捗')).toBeVisible({ timeout: 10000 });
-    await expect(page.getByText('カテゴリー別進捗')).toBeVisible({ timeout: 10000 });
-    await expect(page.getByText('学習時間')).toBeVisible({ timeout: 10000 });
-    await expect(page.getByText('最近の学習セッション')).toBeVisible({ timeout: 10000 });
+    await expect(page.getByRole('heading', { name: 'レベル進捗' })).toBeVisible({ timeout: 10000 });
+    await expect(page.getByRole('heading', { name: 'カテゴリー別進捗' })).toBeVisible({ timeout: 10000 });
+    await expect(page.getByRole('heading', { name: '学習時間' })).toBeVisible({ timeout: 10000 });
+    await expect(page.getByRole('heading', { name: '最近の学習セッション' })).toBeVisible({ timeout: 10000 });
 
     // Verify category progress bars
     await expect(page.getByText('挨拶')).toBeVisible({ timeout: 10000 });
@@ -148,7 +148,7 @@ test.describe('Progress Tracking', () => {
     await page.waitForLoadState('networkidle');
 
     // Get initial streak
-    const streakContainer = page.locator('text=/連続学習日数/').locator('..');
+    const streakContainer = page.getByText('連続学習日数').first().locator('..');
     const streakElement = streakContainer.locator('.text-3xl').first();
     await expect(streakElement).toBeVisible({ timeout: 10000 });
 
@@ -186,7 +186,7 @@ test.describe('Progress Tracking', () => {
     await page.waitForLoadState('networkidle');
 
     // Verify streak is at least 1
-    const newStreakContainer = page.locator('text=/連続学習日数/').locator('..');
+    const newStreakContainer = page.getByText('連続学習日数').first().locator('..');
     const newStreakElement = newStreakContainer.locator('.text-3xl').first();
     await expect(newStreakElement).toBeVisible({ timeout: 10000 });
     const newStreakText = await newStreakElement.textContent();
@@ -200,12 +200,10 @@ test.describe('Progress Tracking', () => {
     await page.waitForLoadState('networkidle');
 
     // Verify level progress section exists
-    await expect(page.getByText('レベル進捗')).toBeVisible({ timeout: 10000 });
+    await expect(page.getByRole('heading', { name: 'レベル進捗' })).toBeVisible({ timeout: 10000 });
 
     // Verify progress bar is displayed
-    const progressBar = page.locator('.bg-gradient-to-r.from-purple-500.to-blue-500')
-      .or(page.locator('[role="progressbar"]'))
-      .or(page.locator('.bg-gradient-to-r'));
+    const progressBar = page.locator('.bg-gradient-to-r.from-purple-500.to-blue-500').first();
     await expect(progressBar).toBeVisible({ timeout: 10000 });
 
     // Verify XP text is shown (e.g., "50 / 100 XP")
@@ -217,7 +215,7 @@ test.describe('Progress Tracking', () => {
     await page.waitForLoadState('networkidle');
 
     // Verify category progress section
-    await expect(page.getByText('カテゴリー別進捗')).toBeVisible({ timeout: 10000 });
+    await expect(page.getByRole('heading', { name: 'カテゴリー別進捗' })).toBeVisible({ timeout: 10000 });
 
     // Verify all 5 categories are shown
     const categories = ['挨拶', '数字', '日常会話', '食べ物', 'ビジネス'];

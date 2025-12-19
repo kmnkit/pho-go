@@ -82,7 +82,7 @@ test.describe('Navigation', () => {
 
     // Verify footer is visible with correct copyright text
     const currentYear = new Date().getFullYear();
-    await expect(page.getByText(`© ${currentYear} Vietnamese Word Cards`)).toBeVisible({ timeout: 10000 });
+    await expect(page.getByText(`© ${currentYear} Việt Pocket`)).toBeVisible({ timeout: 10000 });
 
     // Test footer quick links navigation
     const footerNav = page.locator('nav[aria-label="フッタークイックリンク"]');
