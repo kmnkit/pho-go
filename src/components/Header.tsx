@@ -15,7 +15,7 @@ export default function Header() {
             <Link href="/" className="flex items-center space-x-2" aria-label="ホームページへ戻る">
               <span className="text-2xl" aria-hidden="true">🇻🇳</span>
               <span className="text-xl font-bold text-primary-600">
-                Vietnamese Cards
+                Việt Pocket
               </span>
             </Link>
           </div>
