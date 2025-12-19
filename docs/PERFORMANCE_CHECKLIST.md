@@ -14,9 +14,10 @@
   - バンドルサイズ30%削減、ビルド時間50%短縮
 - [x] **Console 除去** (本番環境)
   - `console.log` を自動除去（error, warn は保持）
-- [ ] **CSS 最適化** (`optimizeCss: true`)
-  - ⚠️ コメントアウト中 - `critters` パッケージが必要
-  - 有効化後: CSS バンドルサイズ約20%削減
+- [x] **CSS 最適化** (`optimizeCss: true`)
+  - ✅ 実装済み - `critters` パッケージ導入完了
+  - Critical CSS のインライン化
+  - CSS バンドルサイズ約20%削減見込み
 - [x] **パッケージインポート最適化**
   - zustand, howler を最適化
   - Tree Shaking で必要な部分のみバンドル
@@ -135,16 +136,28 @@
 
 ### 優先度: 高
 
-- [ ] **動的インポート (Code Splitting)**
-  - 重いコンポーネントの遅延読み込み
-  - ルート別のバンドル分割
-  - 推定効果: Initial Bundle 30%削減
+- [x] **動的インポート (Code Splitting)**
+  - ✅ ToneDetailCard コンポーネントの遅延読み込み実装
+    - /learn/tones: 110 kB → 99.8 kB (-10.2 kB, 9.3%削減)
+  - ✅ QuizResults コンポーネントの遅延読み込み実装
+    - 3つのクイズページで重複コード削減
+  - ✅ `ssr: false` で Audio API などクライアント専用コンポーネントを最適化
+  - 実績: Initial Bundle 約10%削減
 
-- [ ] **React コンポーネント最適化**
-  - React.memo でメモ化
-  - useMemo/useCallback の適切な使用
-  - 不要な再レンダリング防止
-  - 推定効果: Rendering 20%高速化
+- [x] **React コンポーネント最適化**
+  - ✅ useMemo でメモ化 (progress page)
+    - categoryProgress: learned_words 依存
+    - levelProgress: experience_points 依存
+    - totalStudyMinutes: study_sessions 依存
+    - recentSessions: study_sessions 依存
+    - isStreakActive: last_study_date 依存
+  - ✅ React.memo と useCallback でリストアイテム最適化
+    - flashcards page: CategoryCard をメモ化、getCategoryProgress をキャッシュ
+    - alphabet page: LetterButton, LetterDetailCard をメモ化
+    - tones page: ToneCard をメモ化
+    - quiz selection page: QuizModeCard をメモ化
+  - ✅ 不要な再レンダリング防止
+  - 実績: ランタイムパフォーマンス向上、不要な再計算・再レンダリングを防止
 
 - [ ] **データ読み込み最適化**
   - 段階的読み込み (Pagination)
@@ -155,9 +168,9 @@
 
 - [ ] **フォント最適化**
   - ⚠️ Interフォントがコメントアウト中 (layout.tsx)
-  - 実装時: フォントサブセット化
-  - display: swap 設定
-  - フォントプリロード
+  - コード準備済み: subsets: ['latin'], display: 'swap'
+  - ビルド時にGoogle Fontsへのネットワークアクセスが必要
+  - 本番環境では有効化可能
   - 推定効果: FCP 0.3秒改善
 
 - [x] **Service Worker (PWA対応)**
@@ -249,21 +262,24 @@ npm run lighthouse
 
 **完了済み (✅):**
 - Next.js 基本設定 (圧縮、ヘッダー、SWC、Console除去)
+- **CSS 最適化 (optimizeCss: true)** - critters パッケージ導入完了
 - 画像最適化 (AVIF/WebP、レスポンシブ)
 - キャッシング戦略 (静的アセット、学習データ)
 - SEO & メタデータ (全項目)
 - Web Vitals 追跡と監視
 - PWA 対応 (Service Worker、オフラインキャッシング)
 - Lighthouse ツール
+- **Code Splitting (動的インポート)** - ToneDetailCard, QuizResults
+- **React パフォーマンス最適化**
+  - useMemo 適用 (progress page)
+  - **React.memo 適用** - CategoryCard, LetterButton, LetterDetailCard, ToneCard, QuizModeCard
+  - **useCallback 適用** - イベントハンドラー、計算関数のメモ化
 
 **一部実装/要対応 (⚠️):**
-- CSS 最適化 (コメントアウト中 - critters必要)
-- フォント最適化 (Interフォントがコメントアウト)
+- フォント最適化 (Interフォントコード準備済み、ネットワークアクセス必要)
 - 音声ファイル最適化 (ファイル未統合)
 
 **未実装 (❌):**
-- 動的インポート (Code Splitting)
-- React コンポーネント最適化 (memo, useMemo, useCallback)
 - データ読み込み最適化 (プリフェッチ、ページネーション)
 - Web Workers
 - IndexedDB 最適化 (実アプリでの活用)

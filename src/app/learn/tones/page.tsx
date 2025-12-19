@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useCallback, memo } from 'react';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import tonesData from '@/data/tones.json';
@@ -33,8 +33,73 @@ interface Tone {
   examples: ToneExample[];
 }
 
+interface ToneCardProps {
+  tone: Tone;
+  isSelected: boolean;
+  onClick: (tone: Tone) => void;
+}
+
+// Memoized ToneCard component to prevent unnecessary re-renders
+const ToneCard = memo<ToneCardProps>(function ToneCard({
+  tone,
+  isSelected,
+  onClick,
+}) {
+  const handleClick = useCallback(() => {
+    onClick(tone);
+  }, [tone, onClick]);
+
+  return (
+    <button
+      onClick={handleClick}
+      className={`
+        p-6 rounded-lg border-2 transition-all text-left
+        hover:scale-105 hover:shadow-xl
+        ${
+          isSelected
+            ? 'bg-primary-500 text-white border-primary-600 shadow-lg'
+            : 'bg-white text-gray-900 border-gray-200 hover:border-primary-400'
+        }
+      `}
+    >
+      <div className="flex items-center justify-between mb-3">
+        <div>
+          <h3 className="text-xl font-bold mb-1">{tone.name}</h3>
+          <p
+            className={`text-sm ${
+              isSelected ? 'text-white/80' : 'text-gray-500'
+            }`}
+          >
+            {tone.vietnamese_name}
+          </p>
+        </div>
+        <div className="text-3xl">{tone.pattern}</div>
+      </div>
+      <div className="flex items-center gap-2">
+        <span
+          className={`text-sm font-medium ${
+            isSelected ? 'text-white' : 'text-gray-600'
+          }`}
+        >
+          記号: {tone.symbol}
+        </span>
+      </div>
+    </button>
+  );
+});
+
 export default function TonesPage() {
   const [selectedTone, setSelectedTone] = useState<Tone | null>(null);
+
+  // Memoize the tone selection handler
+  const handleToneClick = useCallback((tone: Tone) => {
+    setSelectedTone(tone);
+  }, []);
+
+  // Memoize the close handler
+  const handleClose = useCallback(() => {
+    setSelectedTone(null);
+  }, []);
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-6xl">
@@ -59,53 +124,18 @@ export default function TonesPage() {
       {/* Tones Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
         {tonesData.map((tone) => (
-          <button
+          <ToneCard
             key={tone.id}
-            onClick={() => setSelectedTone(tone)}
-            className={`
-              p-6 rounded-lg border-2 transition-all text-left
-              hover:scale-105 hover:shadow-xl
-              ${
-                selectedTone?.id === tone.id
-                  ? 'bg-primary-500 text-white border-primary-600 shadow-lg'
-                  : 'bg-white text-gray-900 border-gray-200 hover:border-primary-400'
-              }
-            `}
-          >
-            <div className="flex items-center justify-between mb-3">
-              <div>
-                <h3 className="text-xl font-bold mb-1">{tone.name}</h3>
-                <p
-                  className={`text-sm ${
-                    selectedTone?.id === tone.id
-                      ? 'text-white/80'
-                      : 'text-gray-500'
-                  }`}
-                >
-                  {tone.vietnamese_name}
-                </p>
-              </div>
-              <div className="text-3xl">{tone.pattern}</div>
-            </div>
-            <div className="flex items-center gap-2">
-              <span
-                className={`text-sm font-medium ${
-                  selectedTone?.id === tone.id ? 'text-white' : 'text-gray-600'
-                }`}
-              >
-                記号: {tone.symbol}
-              </span>
-            </div>
-          </button>
+            tone={tone}
+            isSelected={selectedTone?.id === tone.id}
+            onClick={handleToneClick}
+          />
         ))}
       </div>
 
       {/* Tone Detail Card */}
       {selectedTone && (
-        <ToneDetailCard
-          tone={selectedTone}
-          onClose={() => setSelectedTone(null)}
-        />
+        <ToneDetailCard tone={selectedTone} onClose={handleClose} />
       )}
 
       {/* Guide Section */}

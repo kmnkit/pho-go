@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useCallback, memo } from 'react';
 import alphabetData from '@/data/alphabet.json';
 import { useAudioPlayer } from '@/lib/hooks/useAudioPlayer';
 
@@ -13,8 +13,53 @@ interface AlphabetLetter {
   examples: string[];
 }
 
+interface LetterButtonProps {
+  letter: AlphabetLetter;
+  isSelected: boolean;
+  onClick: (letter: AlphabetLetter) => void;
+}
+
+// Memoized LetterButton component
+const LetterButton = memo<LetterButtonProps>(function LetterButton({
+  letter,
+  isSelected,
+  onClick,
+}) {
+  const handleClick = useCallback(() => {
+    onClick(letter);
+  }, [letter, onClick]);
+
+  return (
+    <button
+      onClick={handleClick}
+      className={`
+        aspect-square rounded-lg border-2 transition-all
+        hover:scale-110 hover:shadow-lg hover:border-primary-500
+        flex items-center justify-center text-2xl font-bold
+        ${
+          isSelected
+            ? 'bg-primary-500 text-white border-primary-600'
+            : 'bg-white text-gray-900 border-gray-200'
+        }
+      `}
+    >
+      {letter.letter}
+    </button>
+  );
+});
+
 export default function AlphabetPage() {
   const [selectedLetter, setSelectedLetter] = useState<AlphabetLetter | null>(null);
+
+  // Memoize the close handler
+  const handleClose = useCallback(() => {
+    setSelectedLetter(null);
+  }, []);
+
+  // Memoize the letter selection handler
+  const handleLetterClick = useCallback((letter: AlphabetLetter) => {
+    setSelectedLetter(letter);
+  }, []);
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-6xl">
@@ -31,31 +76,18 @@ export default function AlphabetPage() {
       {/* Alphabet Grid */}
       <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-7 lg:grid-cols-8 gap-3 mb-8">
         {alphabetData.map((letter) => (
-          <button
+          <LetterButton
             key={letter.letter}
-            onClick={() => setSelectedLetter(letter)}
-            className={`
-              aspect-square rounded-lg border-2 transition-all
-              hover:scale-110 hover:shadow-lg hover:border-primary-500
-              flex items-center justify-center text-2xl font-bold
-              ${
-                selectedLetter?.letter === letter.letter
-                  ? 'bg-primary-500 text-white border-primary-600'
-                  : 'bg-white text-gray-900 border-gray-200'
-              }
-            `}
-          >
-            {letter.letter}
-          </button>
+            letter={letter}
+            isSelected={selectedLetter?.letter === letter.letter}
+            onClick={handleLetterClick}
+          />
         ))}
       </div>
 
       {/* Letter Detail Card */}
       {selectedLetter && (
-        <LetterDetailCard
-          letter={selectedLetter}
-          onClose={() => setSelectedLetter(null)}
-        />
+        <LetterDetailCard letter={selectedLetter} onClose={handleClose} />
       )}
 
       {/* Guide Section */}
@@ -93,8 +125,10 @@ interface LetterDetailCardProps {
   onClose: () => void;
 }
 
-function LetterDetailCard({ letter, onClose }: LetterDetailCardProps) {
-  const { play, isPlaying } = useAudioPlayer(letter.audio_url);
+// Memoized LetterDetailCard component
+const LetterDetailCard = memo<LetterDetailCardProps>(
+  function LetterDetailCard({ letter, onClose }) {
+    const { play, isPlaying } = useAudioPlayer(letter.audio_url);
 
   return (
     <div className="bg-white rounded-lg shadow-xl p-6 mb-8 border-2 border-primary-200">
@@ -168,4 +202,4 @@ function LetterDetailCard({ letter, onClose }: LetterDetailCardProps) {
       </div>
     </div>
   );
-}
+});

@@ -1,5 +1,6 @@
 'use client';
 
+import { useMemo } from 'react';
 import { useUserProgress } from '@/stores/userProgressStore';
 import categoriesData from '@/data/categories.json';
 
@@ -14,45 +15,56 @@ export default function ProgressPage() {
   } = useUserProgress();
 
   // Calculate level progress
-  const getRequiredXPForLevel = (level: number) => {
-    return level * 100; // 100 XP per level
-  };
-
-  // const currentLevelXP = getRequiredXPForLevel(current_level); // Keeping for future use
-  // const nextLevelXP = getRequiredXPForLevel(current_level + 1); // Keeping for future use
-  const levelProgress = ((experience_points % 100) / 100) * 100;
-
-  // Calculate category progress
-  const categoryProgress = categoriesData.map((category) => {
-    const categoryWords = learned_words.filter((wordId) =>
-      wordId.startsWith(category.id)
-    );
-    const progress = (categoryWords.length / category.wordCount) * 100;
-    return {
-      ...category,
-      learnedCount: categoryWords.length,
-      progress: Math.round(progress),
-    };
-  });
-
-  // Calculate total study time (mock data for now)
-  const totalStudyMinutes = study_sessions.reduce(
-    (total, session) => total + (session.duration_minutes || 0),
-    0
+  const levelProgress = useMemo(
+    () => ((experience_points % 100) / 100) * 100,
+    [experience_points]
   );
 
-  // Recent study sessions (last 7 days)
-  const recentSessions = study_sessions.slice(-7).reverse();
+  // Calculate category progress - memoized to avoid recalculation
+  const categoryProgress = useMemo(
+    () =>
+      categoriesData.map((category) => {
+        const categoryWords = learned_words.filter((wordId) =>
+          wordId.startsWith(category.id)
+        );
+        const progress = (categoryWords.length / category.wordCount) * 100;
+        return {
+          ...category,
+          learnedCount: categoryWords.length,
+          progress: Math.round(progress),
+        };
+      }),
+    [learned_words]
+  );
 
-  // Calculate streak status
-  const isStreakActive = () => {
+  // Calculate total study time - memoized
+  const totalStudyMinutes = useMemo(
+    () =>
+      study_sessions.reduce(
+        (total, session) => total + (session.duration_minutes || 0),
+        0
+      ),
+    [study_sessions]
+  );
+
+  // Recent study sessions - memoized
+  const recentSessions = useMemo(
+    () => study_sessions.slice(-7).reverse(),
+    [study_sessions]
+  );
+
+  // Calculate streak status - memoized
+  const isStreakActive = useMemo(() => {
     if (!last_study_date) return false;
     const lastStudy = new Date(last_study_date);
     const today = new Date();
     const diffTime = Math.abs(today.getTime() - lastStudy.getTime());
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     return diffDays <= 1;
-  };
+  }, [last_study_date]);
+
+  // Helper function to calculate required XP for a level
+  const getRequiredXPForLevel = (level: number) => level * 100;
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-6xl">
@@ -101,7 +113,7 @@ export default function ProgressPage() {
         {/* Streak */}
         <div
           className={`rounded-lg shadow-lg p-6 text-white ${
-            isStreakActive()
+            isStreakActive
               ? 'bg-gradient-to-br from-orange-500 to-orange-600'
               : 'bg-gradient-to-br from-gray-400 to-gray-500'
           }`}
@@ -112,7 +124,7 @@ export default function ProgressPage() {
           </div>
           <p className="text-3xl font-bold">{streak_days}</p>
           <p className="text-xs opacity-75 mt-1">
-            {isStreakActive() ? '継続中！' : '記録を更新しよう'}
+            {isStreakActive ? '継続中！' : '記録を更新しよう'}
           </p>
         </div>
       </div>

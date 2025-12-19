@@ -7,7 +7,14 @@ import WebVitals from '@/components/WebVitals';
 import SkipLink from '@/components/SkipLink';
 import KeyboardShortcuts from '@/components/KeyboardShortcuts';
 
-// const inter = Inter({ subsets: ['latin'] });
+// Inter font with optimization
+// Note: Disabled due to network access requirement during build
+// To enable: uncomment import and const below, update body className
+// const inter = Inter({
+//   subsets: ['latin'],
+//   display: 'swap', // Prevent FOIT (Flash of Invisible Text)
+//   variable: '--font-inter',
+// });
 
 export const metadata: Metadata = {
   title: {

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, memo } from 'react';
 import Link from 'next/link';
 import categoriesData from '@/data/categories.json';
 
@@ -39,6 +39,59 @@ const quizModes: QuizMode[] = [
     difficulty: 'intermediate',
   },
 ];
+
+interface QuizModeCardProps {
+  mode: QuizMode;
+  selectedCategory: string;
+}
+
+// Memoized QuizModeCard component to prevent unnecessary re-renders
+const QuizModeCard = memo<QuizModeCardProps>(function QuizModeCard({
+  mode,
+  selectedCategory,
+}) {
+  return (
+    <Link
+      href={`${mode.path}?category=${selectedCategory}`}
+      className="group"
+    >
+      <div className="bg-white rounded-lg shadow-md hover:shadow-xl transition-all p-6 border-2 border-gray-100 hover:border-primary-400 hover:scale-105 cursor-pointer h-full">
+        {/* Icon */}
+        <div className="text-5xl mb-4 text-center">{mode.icon}</div>
+
+        {/* Title */}
+        <h3 className="text-xl font-bold text-gray-900 mb-2 text-center group-hover:text-primary-600 transition-colors">
+          {mode.name}
+        </h3>
+
+        {/* Description */}
+        <p className="text-sm text-gray-600 mb-4 text-center">
+          {mode.description}
+        </p>
+
+        {/* Difficulty Badge */}
+        <div className="flex justify-center mb-4">
+          <span
+            className={`px-3 py-1 text-xs font-semibold rounded-full ${
+              mode.difficulty === 'beginner'
+                ? 'bg-green-100 text-green-700'
+                : 'bg-orange-100 text-orange-700'
+            }`}
+          >
+            {mode.difficulty === 'beginner' ? '初級向け' : '中級向け'}
+          </span>
+        </div>
+
+        {/* Action */}
+        <div className="text-center pt-4 border-t border-gray-100">
+          <span className="text-primary-600 font-semibold group-hover:translate-x-1 transition-transform inline-block">
+            クイズを始める →
+          </span>
+        </div>
+      </div>
+    </Link>
+  );
+});
 
 export default function QuizPage() {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
@@ -92,46 +145,11 @@ export default function QuizPage() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {quizModes.map((mode) => (
-            <Link
+            <QuizModeCard
               key={mode.id}
-              href={`${mode.path}?category=${selectedCategory}`}
-              className="group"
-            >
-              <div className="bg-white rounded-lg shadow-md hover:shadow-xl transition-all p-6 border-2 border-gray-100 hover:border-primary-400 hover:scale-105 cursor-pointer h-full">
-                {/* Icon */}
-                <div className="text-5xl mb-4 text-center">{mode.icon}</div>
-
-                {/* Title */}
-                <h3 className="text-xl font-bold text-gray-900 mb-2 text-center group-hover:text-primary-600 transition-colors">
-                  {mode.name}
-                </h3>
-
-                {/* Description */}
-                <p className="text-sm text-gray-600 mb-4 text-center">
-                  {mode.description}
-                </p>
-
-                {/* Difficulty Badge */}
-                <div className="flex justify-center mb-4">
-                  <span
-                    className={`px-3 py-1 text-xs font-semibold rounded-full ${
-                      mode.difficulty === 'beginner'
-                        ? 'bg-green-100 text-green-700'
-                        : 'bg-orange-100 text-orange-700'
-                    }`}
-                  >
-                    {mode.difficulty === 'beginner' ? '初級向け' : '中級向け'}
-                  </span>
-                </div>
-
-                {/* Action */}
-                <div className="text-center pt-4 border-t border-gray-100">
-                  <span className="text-primary-600 font-semibold group-hover:translate-x-1 transition-transform inline-block">
-                    クイズを始める →
-                  </span>
-                </div>
-              </div>
-            </Link>
+              mode={mode}
+              selectedCategory={selectedCategory}
+            />
           ))}
         </div>
       </div>
