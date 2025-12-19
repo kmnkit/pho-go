@@ -1,12 +1,24 @@
 'use client';
 export const dynamic = 'force-dynamic';
 
-
 import { useState, useEffect } from 'react';
+import dynamicImport from 'next/dynamic';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useUserProgressActions } from '@/stores/userProgressStore';
 import { useAudioPlayer } from '@/lib/hooks/useAudioPlayer';
 import type { Word } from '@/types';
+
+// Dynamic import for QuizResults - only loaded when quiz is complete
+const QuizResults = dynamicImport(() => import('@/components/QuizResults'), {
+  loading: () => (
+    <div className="container mx-auto px-4 py-8 max-w-2xl">
+      <div className="bg-white rounded-lg shadow-xl p-8 animate-pulse">
+        <div className="h-48 bg-gray-200 rounded"></div>
+      </div>
+    </div>
+  ),
+  ssr: false,
+});
 
 interface QuizQuestion {
   word: Word;
@@ -115,84 +127,14 @@ export default function ViToJaQuizPage() {
   }
 
   if (quizComplete) {
-    const percentage = Math.round((score / questions.length) * 100);
     return (
-      <div className="container mx-auto px-4 py-8 max-w-4xl">
-        <div className="bg-white rounded-lg shadow-xl p-8">
-          <div className="text-center mb-6">
-            <div className="text-6xl mb-4">
-              {percentage >= 80 ? '🎉' : percentage >= 60 ? '👏' : '📚'}
-            </div>
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">
-              クイズ完了！
-            </h1>
-            <p className="text-5xl font-bold text-primary-600 mb-2">
-              {score} / {questions.length}
-            </p>
-            <p className="text-xl text-gray-600">正解率: {percentage}%</p>
-            <p className="text-lg text-green-600 mt-2">
-              獲得XP: {score * 5} XP
-            </p>
-          </div>
-
-          <div className="mb-6 p-4 bg-gray-50 rounded-lg text-center">
-            {percentage >= 80 ? (
-              <p className="text-lg text-gray-700">
-                素晴らしい！ベトナム語の理解が深まっていますね！
-              </p>
-            ) : percentage >= 60 ? (
-              <p className="text-lg text-gray-700">
-                いい調子です！もう少し練習すればマスターできそうです。
-              </p>
-            ) : (
-              <p className="text-lg text-gray-700">
-                頑張りましょう！音声も聞きながら復習してみてください。
-              </p>
-            )}
-          </div>
-
-          {wrongAnswers.length > 0 && (
-            <div className="mb-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                間違えた問題
-              </h3>
-              <div className="space-y-2">
-                {wrongAnswers.map((q, idx) => (
-                  <div
-                    key={idx}
-                    className="p-3 bg-red-50 rounded-lg border border-red-200"
-                  >
-                    <p className="text-sm font-semibold text-gray-900">
-                      {q.word.vietnamese}
-                    </p>
-                    <p className="text-sm text-gray-600">
-                      正解: {q.word.japanese}
-                    </p>
-                    <p className="text-xs text-gray-500">
-                      ({q.word.pronunciation})
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          <div className="flex flex-col sm:flex-row gap-4">
-            <button
-              onClick={() => router.push(`/quiz/vi-to-ja?category=${categoryParam}`)}
-              className="flex-1 px-6 py-3 bg-primary-500 text-white rounded-lg font-medium hover:bg-primary-600 transition-colors"
-            >
-              もう一度挑戦
-            </button>
-            <button
-              onClick={() => router.push('/quiz')}
-              className="flex-1 px-6 py-3 bg-gray-200 text-gray-700 rounded-lg font-medium hover:bg-gray-300 transition-colors"
-            >
-              他のクイズへ
-            </button>
-          </div>
-        </div>
-      </div>
+      <QuizResults
+        score={score}
+        totalQuestions={questions.length}
+        wrongAnswers={wrongAnswers}
+        categoryParam={categoryParam}
+        quizType="vi-to-ja"
+      />
     );
   }
 
