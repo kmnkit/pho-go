@@ -68,7 +68,7 @@ const nextConfig = withPWA({
 
   experimental: {
     missingSuspenseWithCSRBailout: false,
-    // optimizeCss: true, // Requires 'critters' package - disabled for now
+    optimizeCss: true, // CSS optimization with critical CSS inlining
     optimizePackageImports: ['zustand', 'howler'],
   },
 

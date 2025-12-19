@@ -14,9 +14,10 @@
   - バンドルサイズ30%削減、ビルド時間50%短縮
 - [x] **Console 除去** (本番環境)
   - `console.log` を自動除去（error, warn は保持）
-- [ ] **CSS 最適化** (`optimizeCss: true`)
-  - ⚠️ コメントアウト中 - `critters` パッケージが必要
-  - 有効化後: CSS バンドルサイズ約20%削減
+- [x] **CSS 最適化** (`optimizeCss: true`)
+  - ✅ 実装済み - `critters` パッケージ導入完了
+  - Critical CSS のインライン化
+  - CSS バンドルサイズ約20%削減見込み
 - [x] **パッケージインポート最適化**
   - zustand, howler を最適化
   - Tree Shaking で必要な部分のみバンドル
@@ -162,9 +163,9 @@
 
 - [ ] **フォント最適化**
   - ⚠️ Interフォントがコメントアウト中 (layout.tsx)
-  - 実装時: フォントサブセット化
-  - display: swap 設定
-  - フォントプリロード
+  - コード準備済み: subsets: ['latin'], display: 'swap'
+  - ビルド時にGoogle Fontsへのネットワークアクセスが必要
+  - 本番環境では有効化可能
   - 推定効果: FCP 0.3秒改善
 
 - [x] **Service Worker (PWA対応)**
@@ -256,6 +257,7 @@ npm run lighthouse
 
 **完了済み (✅):**
 - Next.js 基本設定 (圧縮、ヘッダー、SWC、Console除去)
+- **CSS 最適化 (optimizeCss: true)** - critters パッケージ導入完了
 - 画像最適化 (AVIF/WebP、レスポンシブ)
 - キャッシング戦略 (静的アセット、学習データ)
 - SEO & メタデータ (全項目)
@@ -266,8 +268,7 @@ npm run lighthouse
 - **React パフォーマンス最適化** - progress page に useMemo 適用
 
 **一部実装/要対応 (⚠️):**
-- CSS 最適化 (コメントアウト中 - critters必要)
-- フォント最適化 (Interフォントがコメントアウト)
+- フォント最適化 (Interフォントコード準備済み、ネットワークアクセス必要)
 - 音声ファイル最適化 (ファイル未統合)
 
 **未実装 (❌):**
