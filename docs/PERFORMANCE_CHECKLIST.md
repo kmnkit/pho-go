@@ -14,8 +14,9 @@
   - バンドルサイズ30%削減、ビルド時間50%短縮
 - [x] **Console 除去** (本番環境)
   - `console.log` を自動除去（error, warn は保持）
-- [x] **CSS 最適化** (`optimizeCss: true`)
-  - CSS バンドルサイズ約20%削減
+- [ ] **CSS 最適化** (`optimizeCss: true`)
+  - ⚠️ コメントアウト中 - `critters` パッケージが必要
+  - 有効化後: CSS バンドルサイズ約20%削減
 - [x] **パッケージインポート最適化**
   - zustand, howler を最適化
   - Tree Shaking で必要な部分のみバンドル
@@ -73,6 +74,20 @@
 - [x] **パフォーマンスライブラリ**
   - `web-vitals` パッケージ統合
   - メトリクス評価関数 (good/needs-improvement/poor)
+
+### PWA 対応
+
+- [x] **next-pwa による PWA 実装**
+  - Service Worker 自動生成 (sw.js)
+  - Workbox によるキャッシング戦略
+  - 開発環境では無効化
+- [x] **ランタイムキャッシング**
+  - 音声ファイル: CacheFirst (30日間)
+  - データ (JSON): StaleWhileRevalidate (1日間)
+  - 画像: CacheFirst (7日間)
+- [x] **オフライン対応**
+  - 静的アセットのキャッシング
+  - Service Worker による自動更新
 
 ### ツール & スクリプト
 
@@ -139,18 +154,21 @@
 ### 優先度: 中
 
 - [ ] **フォント最適化**
-  - フォントサブセット化
+  - ⚠️ Interフォントがコメントアウト中 (layout.tsx)
+  - 実装時: フォントサブセット化
   - display: swap 設定
   - フォントプリロード
   - 推定効果: FCP 0.3秒改善
 
-- [ ] **Service Worker (PWA対応時)**
-  - オフラインキャッシング
-  - バックグラウンド同期
-  - 推定効果: リピート訪問 2秒高速化
+- [x] **Service Worker (PWA対応)**
+  - ✅ next-pwa で実装済み
+  - ✅ オフラインキャッシング (画像、音声、JSON)
+  - ✅ ランタイムキャッシング戦略設定
+  - sw.js と workbox による自動キャッシング
 
-- [ ] **音声ファイル最適化 (統合時)**
-  - 遅延読み込み
+- [ ] **音声ファイル最適化**
+  - ⚠️ 音声ファイルがまだ統合されていない (public/audio/ 未作成)
+  - 実装予定: 遅延読み込み
   - 圧縮 (Opus/AAC)
   - ストリーミング
   - 推定効果: ページサイズ 80%削減
@@ -226,6 +244,29 @@ npm run lighthouse
 - ✅ INP: < 200ms
 
 ## 📝 ノート
+
+### 実装状況サマリー (2025-12-19更新)
+
+**完了済み (✅):**
+- Next.js 基本設定 (圧縮、ヘッダー、SWC、Console除去)
+- 画像最適化 (AVIF/WebP、レスポンシブ)
+- キャッシング戦略 (静的アセット、学習データ)
+- SEO & メタデータ (全項目)
+- Web Vitals 追跡と監視
+- PWA 対応 (Service Worker、オフラインキャッシング)
+- Lighthouse ツール
+
+**一部実装/要対応 (⚠️):**
+- CSS 最適化 (コメントアウト中 - critters必要)
+- フォント最適化 (Interフォントがコメントアウト)
+- 音声ファイル最適化 (ファイル未統合)
+
+**未実装 (❌):**
+- 動的インポート (Code Splitting)
+- React コンポーネント最適化 (memo, useMemo, useCallback)
+- データ読み込み最適化 (プリフェッチ、ページネーション)
+- Web Workers
+- IndexedDB 最適化 (実アプリでの活用)
 
 ### 最適化の優先順位
 
