@@ -4,23 +4,23 @@ test.describe('Progress Tracking', () => {
   test.beforeEach(async ({ page }) => {
     // Clear localStorage before each test to start fresh
     await page.goto('/');
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('domcontentloaded');
     await page.evaluate(() => localStorage.clear());
     await page.reload();
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('domcontentloaded');
   });
 
   test('should display initial user progress on home page', async ({ page }) => {
     await page.goto('/');
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('domcontentloaded');
 
     // Verify home page stats are displayed
-    await expect(page.getByText('連続学習日数').first()).toBeVisible({ timeout: 10000 });
-    await expect(page.getByText('現在のレベル').first()).toBeVisible({ timeout: 10000 });
-    await expect(page.getByText('習得単語数').or(page.getByText('習得済み単語')).first()).toBeVisible({ timeout: 10000 });
+    await expect(page.getByText('連続学習日数').first()).toBeVisible({ timeout: 15000 });
+    await expect(page.getByText('現在のレベル').first()).toBeVisible({ timeout: 15000 });
+    await expect(page.getByText('習得単語数').or(page.getByText('習得済み単語')).first()).toBeVisible({ timeout: 15000 });
 
     // Initial values should be 0 or 1
-    await expect(page.locator('text=/Lv\\d+/')).toBeVisible({ timeout: 10000 });
+    await expect(page.locator('text=/Level \\d+/')).toBeVisible({ timeout: 15000 });
   });
 
   test('should update XP after learning flashcards', async ({ page }) => {

@@ -418,23 +418,3 @@ export const validateDataArray = <T>(
   return { success: true, data: results };
 };
 
-/**
- * Safe JSON import with validation
- */
-export const importAndValidateJSON = async <T>(
-  importPath: string,
-  validator: (data: unknown) => ValidationResult<readonly T[]>,
-  dataType: string
-): Promise<ValidationResult<readonly T[]>> => {
-  try {
-    const importedModule = await import(importPath);
-    const data = importedModule.default;
-    
-    return validator(data);
-  } catch (error) {
-    return {
-      success: false,
-      errors: [`Failed to import ${dataType} from ${importPath}: ${error instanceof Error ? error.message : 'Unknown error'}`],
-    };
-  }
-};

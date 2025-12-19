@@ -305,5 +305,4 @@ export {
   validateAlphabet,
   validateTone,
   validateDataArray,
-  importAndValidateJSON,
 } from './data';
