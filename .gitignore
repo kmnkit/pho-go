@@ -55,3 +55,18 @@ next-env.d.ts
 # OS
 .DS_Store
 Thumbs.db
+
+# Audio files (generated/acquired separately)
+# Keep directory structure and README, but ignore actual audio files
+public/audio/**/*.mp3
+public/audio/**/*.m4a
+public/audio/**/*.ogg
+public/audio/**/*.opus
+public/audio/**/*.wav
+# Keep placeholder and README files
+!public/audio/**/placeholder.mp3
+!public/audio/**/README.md
+
+# Generated audio lists
+audio-files-needed.txt
+audio-files-checklist.md

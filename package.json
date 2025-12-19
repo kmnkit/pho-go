@@ -18,7 +18,12 @@
     "test:e2e:issues": "node scripts/create-test-issues.js",
     "test:e2e:issues:dry": "node scripts/create-test-issues.js --dry-run",
     "lighthouse": "lighthouse http://localhost:3000 --view --output=html --output-path=./lighthouse-report.html",
-    "lighthouse:ci": "lighthouse http://localhost:3000 --output=json --output-path=./lighthouse-report.json --chrome-flags='--headless'"
+    "lighthouse:ci": "lighthouse http://localhost:3000 --output=json --output-path=./lighthouse-report.json --chrome-flags='--headless'",
+    "audio:list": "node scripts/generate-audio-list.js",
+    "audio:placeholder": "node scripts/generate-placeholder-audio.js --all",
+    "audio:placeholder:alphabet": "node scripts/generate-placeholder-audio.js --alphabet",
+    "audio:placeholder:tones": "node scripts/generate-placeholder-audio.js --tones",
+    "audio:placeholder:words": "node scripts/generate-placeholder-audio.js --words"
   },
   "dependencies": {
     "@auth/drizzle-adapter": "^1.11.1",

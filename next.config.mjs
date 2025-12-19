@@ -8,13 +8,17 @@ const nextConfig = withPWA({
   skipWaiting: true,
   runtimeCaching: [
     {
-      urlPattern: /^https?.*\.(mp3|wav|ogg)$/,
+      // Cache audio files (both local and external)
+      urlPattern: /\.(mp3|wav|ogg|m4a|opus)$/,
       handler: 'CacheFirst',
       options: {
         cacheName: 'audio-cache',
         expiration: {
-          maxEntries: 100,
+          maxEntries: 300, // Increased to accommodate ~235 audio files
           maxAgeSeconds: 30 * 24 * 60 * 60, // 30 days
+        },
+        cacheableResponse: {
+          statuses: [0, 200],
         },
       },
     },
@@ -77,6 +81,16 @@ const nextConfig = withPWA({
     return [
       {
         source: '/:all*(svg|jpg|jpeg|png|gif|ico|webp|avif)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        // Cache audio files with long expiration
+        source: '/audio/:path*.(mp3|wav|ogg|m4a|opus)',
         headers: [
           {
             key: 'Cache-Control',
